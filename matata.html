@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Tata - Sayag Nova</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
+        nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        nav a { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 0.95em; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 30px; }
+        .app-header h1 { margin: 0; font-size: 2.5em; color: #1a202c; }
+        .badge { display: inline-block; padding: 4px 12px; background: #f0fff4; color: #38a169; font-size: 0.85em; font-weight: 600; border-radius: 20px; margin: 10px 0; }
+        .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+        .description h2 { color: #38a169; font-size: 1.4em; margin-top: 25px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
+        .description ul { padding-left: 20px; }
+        .description li { margin-bottom: 8px; }
+        .gallery-box { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; height: fit-content; text-align: center; }
+        .gallery-box h3 { margin-top: 0; color: #4a5568; font-size: 1.1em; margin-bottom: 15px; }
+        .slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 15px; scrollbar-width: thin; }
+        .slider img { width: auto; height: 350px; border-radius: 8px; scroll-snap-align: center; border: 1px solid #edf2f7; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .btn-download { display: inline-block; background: #38a169; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
+        .btn-download:hover { background: #2f855a; }
+        .footer-links { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+        .footer-links a { color: #4a5568; font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #4a5568; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">&larr; Retour à l'accueil</a>
+    </nav>
+
+    <div class="container">
+        <div class="app-header">
+            <h1>Ma Tata</h1>
+            <span class="badge">Éducatif / Sans Publicité</span>
+            <p><strong>L’application compagnon qui transforme l’apprentissage en un véritable moment de plaisir pour vos enfants !</strong></p>
+            <a href="#" class="btn-download">Télécharger sur Google Play</a>
+        </div>
+
+        <div class="grid">
+            <div class="description">
+                <p>Conçue pour les tout-petits et les enfants d'âge préscolaire, Ma Tata offre un environnement ludique, sécurisé et entièrement pensé pour accompagner les premières découvertes. Guidé par la voix douce et encourageante de Tata, votre enfant explorera 9 univers éducatifs pour grandir à son rythme.</p>
+               
+                <h2>Pourquoi choisir Ma Tata ?</h2>
+                <ul>
+                    <li><strong>Apprentissage complet :</strong> Alphabet, chiffres, couleurs et vocabulaire. Tout est réuni pour poser les bases de la lecture et du calcul.</li>
+                    <li><strong>Initiation à l'écriture :</strong> Un mode exclusif pour apprendre à tracer les lettres et les chiffres du bout du doigt, avec un système de récompenses par étoiles.</li>
+                    <li><strong>Éveil et Logique :</strong> Des puzzles, des jeux de mémoire (Mémo) et le jeu des 7 différences pour stimuler la concentration et l'observation.</li>
+                    <li><strong>Créativité sans limite :</strong> Un atelier de coloriage plein écran avec une palette magique pour exprimer tous ses talents d'artiste.</li>
+                    <li><strong>Immersion Totale :</strong> Des graphismes uniques générés par IA et des effets sonores interactifs pour une expérience captivante.</li>
+                </ul>
+
+                <h2>La sérénité des parents avant tout :</h2>
+                <ul>
+                    <li><strong>✅ Zéro Publicité :</strong> Une expérience fluide sans aucune interruption commerciale.</li>
+                    <li><strong>✅ Contrôle Parental :</strong> Un minuteur intégré pour gérer facilement le temps d'écran.</li>
+                    <li><strong>✅ Respect de la vie privée :</strong> Aucune donnée personnelle n'est collectée. Tout reste sur votre appareil.</li>
+                    <li><strong>✅ Mode Hors-ligne :</strong> Jouez partout, même sans connexion internet.</li>
+                </ul>
+
+                <p><em>Ma Tata n'est pas qu'une application, c'est un outil pédagogique bienveillant qui encourage chaque réussite par une pluie d'étoiles et des mots doux. Téléchargez Ma Tata dès aujourd'hui et offrez à votre enfant une aventure éducative dont il est le héros !</em></p>
+            </div>
+
+            <div class="gallery-box">
+                <h3>Captures d'écran (Défiler horizontalement)</h3>
+                <div class="slider">
+                    <img src="matata.png" alt="Aperçu 1">
+                    <img src="matata1.png" alt="Aperçu 2">
+                    <img src="matata2.png" alt="Aperçu 3">
+                    <img src="matata3.png" alt="Aperçu 4">
+                    <img src="matata4.png" alt="Aperçu 5">
+                    <img src="matata5.png" alt="Aperçu 6">
+                    <img src="matata6.png" alt="Aperçu 7">
+                    <img src="matata7.png" alt="Aperçu 8">
+                    <img src="matata8.png" alt="Aperçu 9">
+                    <img src="matata9.png" alt="Aperçu 10">
+                    <img src="matata10.png" alt="Aperçu 11">
+                    <img src="matata11.png" alt="Aperçu 12">
+                    <img src="matata12.png" alt="Aperçu 13">
+                    <img src="matata13.png" alt="Aperçu 14">
+                    <img src="matata14.png" alt="Aperçu 15">
+                    <img src="matata15.png" alt="Aperçu 16">
+                    <img src="matata16.png" alt="Aperçu 17">
+                    <img src="matata17.png" alt="Aperçu 18">
+                    <img src="matata18.png" alt="Aperçu 19">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="privacy-matata.html">Politique de Confidentialité de Ma Tata</a>
+        </div>
+    </div>
+
+</body>
+</html>
