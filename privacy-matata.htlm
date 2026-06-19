@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - ma tata</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
+        h1 { color: #0056b3; }
+        h2 { color: #333; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Politique de Confidentialité - ma tata</h1>
+    <p>Dernière mise à jour : 19 juin 2026</p>
+    <p>La présente politique de confidentialité décrit la manière dont la SASU <strong>Sayag Nova</strong> gère les données dans le cadre de l'utilisation de l'application éducative <strong>ma tata</strong>. Cette application est payante à l'achat unique, sans publicité et respectueuse de la vie privée.</p>
+
+    <h2>1. Collecte des données et services tiers</h2>
+    <p>L'application est conçue pour protéger la confidentialité de ses utilisateurs, en particulier dans un cadre éducatif. Nous ne vendons aucune donnée et ne suivons pas l'activité des utilisateurs. Les seuls services tiers utilisés sont strictement liés à la plateforme de distribution :</p>
+    <ul>
+        <li><strong>Google Play Services & Google Play Billing :</strong> Pour valider l'achat initial de l'application de manière sécurisée directement via l'infrastructure de Google.</li>
+        <li><strong>Firebase Crashlytics (optionnel) :</strong> Uniquement pour recevoir des rapports anonymes en cas de dysfonctionnement technique ou de plantage afin d'améliorer l'application.</li>
+    </ul>
+
+    <h2>2. Absence de publicité et de ciblage</h2>
+    <p>L'application ne contient aucune publicité, aucun tracker publicitaire et ne collecte aucune donnée à des fins de profilage commercial.</p>
+
+    <h2>3. Contact</h2>
+    <p>Pour toute question ou demande concernant la vie privée sur notre application éducative, vous pouvez contacter la SASU Sayag Nova par email.</p>
+</body>
+</html>
