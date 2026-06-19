@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayag Nova - Studio de Jeux & Applications</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f8f9fa; }
+        header { background: #111; color: #fff; text-align: center; padding: 40px 20px; }
+        header h1 { margin: 0; font-size: 2.5em; }
+        header p { margin: 10px 0 0; color: #bbb; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .card h3 { margin-top: 0; color: #0056b3; }
+        .badge { display: inline-block; padding: 4px 8px; background: #e9ecef; font-size: 0.85em; border-radius: 4px; margin-bottom: 10px; }
+        .btn-privacy { display: inline-block; margin-top: 15px; font-size: 0.9em; color: #0056b3; text-decoration: none; border-bottom: 1px dashed #0056b3; }
+        .legal-section { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 50px; }
+        .legal-section h2 { color: #111; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        footer { text-align: center; padding: 30px; margin-top: 60px; background: #eee; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>S.NOVA</h1>
+        <p>Studio de développement d'applications mobiles — SASU Sayag Nova</p>
+    </header>
+
+    <div class="container">
+        <h2>Nos Applications</h2>
+       
+        <div class="grid">
+            <div class="card">
+                <h3>Rami S.NOVA</h3>
+                <span class="badge">Jeu Gratuit (Pubs)</span>
+                <p>Le jeu de cartes traditionnel du Rami, fluide et accessible à tous.</p>
+                <a class="btn-privacy" href="privacy-jeux.html">Politique de Confidentialité</a>
+            </div>
+
+            <div class="card">
+                <h3>Solitaire S.NOVA</h3>
+                <span class="badge">Jeu Gratuit (Pubs)</span>
+                <p>Le grand classique du Solitaire revisité pour une expérience mobile parfaite.</p>
+                <a class="btn-privacy" href="privacy-jeux.html">Politique de Confidentialité</a>
+            </div>
+
+            <div class="card">
+                <h3>Le Miroir du Destin</h3>
+                <span class="badge">Tarot / Premium</span>
+                <p>Découvrez votre avenir avec notre application de Tarot divinatoire complète.</p>
+                <a class="btn-privacy" href="privacy-miroir.html">Politique de Confidentialité</a>
+            </div>
+
+            <div class="card">
+                <h3>Ma Tata</h3>
+                <span class="badge">Éducatif / Sans Pub</span>
+                <p>Application éducative premium pour les enfants, totalement sécurisée.</p>
+                <a class="btn-privacy" href="privacy-matata.html">Politique de Confidentialité</a>
+            </div>
+        </div>
+
+        <div class="legal-section">
+            <h2>Mentions Légales</h2>
+            <p><strong>Éditeur du site :</strong> Ce site est édité par la SASU Sayag-nova.</p>
+            <p><strong>Siège social :</strong> 78 av des martyrs, 05400 Veynes, France.</p>
+            <p><strong>Contact :</strong> Pour toute demande, vous pouvez nous contacter par email à : <a href="mailto:sayagyohannnova@gmail.com">sayagyohannnova@gmail.com</a>.</p>
+            <p><strong>Hébergement :</strong> Ce site est hébergé de manière statique par la plateforme GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, États-Unis.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
