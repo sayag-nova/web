@@ -8,21 +8,21 @@
         body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
         nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         nav a { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 0.95em; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 30px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 40px; }
+        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
         .app-header h1 { margin: 0; font-size: 2.5em; color: #1a202c; }
         .badge { display: inline-block; padding: 4px 12px; background: #ebf8ff; color: #2b6cb0; font-size: 0.85em; font-weight: 600; border-radius: 20px; margin: 10px 0; }
-        .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
-        .description h2 { color: #2b6cb0; font-size: 1.4em; margin-top: 25px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
-        .description ul { padding-left: 20px; }
-        .description li { margin-bottom: 8px; }
-        .gallery-box { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; height: fit-content; text-align: center; }
-        .gallery-box h3 { margin-top: 0; color: #4a5568; font-size: 1.1em; margin-bottom: 15px; }
-        .slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 15px; scrollbar-width: thin; }
-        .slider img { width: auto; height: 350px; border-radius: 8px; scroll-snap-align: center; border: 1px solid #edf2f7; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .description-section { width: 100%; }
+        .description-section h2 { color: #2b6cb0; font-size: 1.6em; margin-top: 35px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
+        .description-section ul { padding-left: 20px; }
+        .description-section li { margin-bottom: 12px; }
+        .gallery-section { width: 100%; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+        .gallery-section h3 { text-align: center; color: #4a5568; font-size: 1.4em; margin-bottom: 25px; }
+        .image-vertical-list { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        .image-vertical-list img { max-width: 100%; height: auto; max-height: 550px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #edf2f7; }
         .btn-download { display: inline-block; background: #2b6cb0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
         .btn-download:hover { background: #2c5282; }
-        .footer-links { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+        .footer-links { border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 20px; }
         .footer-links a { color: #4a5568; font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #4a5568; }
     </style>
 </head>
@@ -40,33 +40,31 @@
             <a href="#" class="btn-download">Télécharger sur Google Play</a>
         </div>
 
-        <div class="grid">
-            <div class="description">
-                <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec une expérience de jeu moderne, fluide et entièrement personnalisable. Que vous soyez un expert du tapis vert ou un joueur occasionnel cherchant à se détendre, Solitaire S.NOVA a été conçu pour vous offrir le meilleur du jeu de cartes sur mobile.</p>
-               
-                <h2>Pourquoi choisir Solitaire S.NOVA ?</h2>
-                <ul>
-                    <li><strong>♠️ Personnalisation sans limite :</strong> Changez l'ambiance selon vos envies grâce à un large choix de tapis de jeu (Vert Classique, Bleu Royal, thèmes Oasis, Plage, Urban...) et des dos de cartes exclusifs.</li>
-                    <li><strong>♣️ Gameplay fluide et intelligent :</strong> Choisissez de piocher 1 carte (relaxant) ou 3 cartes (défi intense). Utilisez la fonction "Annuler" illimitée ou le système d'indices, et gagnez du temps grâce à l'Auto-Finish.</li>
-                    <li><strong>♥️ Suivez vos progrès :</strong> Devenez le maître du jeu grâce à nos statistiques détaillées (records de temps, scores, nombre de coups).</li>
-                    <li><strong>♦️ Une expérience immersive et soignée :</strong> Mode plein écran, effets sonores réalistes avec retours haptiques, et application légère optimisée pour économiser votre batterie.</li>
-                </ul>
+        <div class="description-section">
+            <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec une expérience de jeu moderne, fluide et entièrement personnalisable. Que vous soyez un expert du tapis vert ou un joueur occasionnel cherchant à se détendre, Solitaire S.NOVA a été conçu pour vous offrir le meilleur du jeu de cartes sur mobile.</p>
+          
+            <h2>Pourquoi choisir Solitaire S.NOVA ?</h2>
+            <ul>
+                <li><strong>♠️ Personnalisation sans limite :</strong> Changez l'ambiance selon vos envies grâce à un large choix de tapis de jeu (Vert Classique, Bleu Royal, thèmes Oasis, Plage, Urban...) et des dos de cartes exclusifs.</li>
+                <li><strong>♣️ Gameplay fluide et intelligent :</strong> Choisissez de piocher 1 carte (relaxant) ou 3 cartes (défi intense). Utilisez la fonction "Annuler" illimitée ou le système d'indices, et gagnez du temps grâce à l'Auto-Finish.</li>
+                <li><strong>♥️ Suivez vos progrès :</strong> Devenez le maître du jeu grâce à nos statistiques détaillées (records de temps, scores, nombre de coups).</li>
+                <li><strong>♦️ Une expérience immersive et soignée :</strong> Mode plein écran, effets sonores realistic avec retours haptiques, et application légère optimisée pour économiser votre batterie.</li>
+            </ul>
 
-                <h2>Respect de votre vie privée :</h2>
-                <p>🛡️ Nous prenons votre confidentialité au sérieux. Solitaire S.NOVA est entièrement conforme au RGPD : vos données de jeu restent sur votre appareil et vos choix de consentement sont scrupuleusement respectés.</p>
+            <h2>Respect de votre vie privée :</h2>
+            <p>🛡️ Nous prenons votre confidentialité au sérieux. Solitaire S.NOVA est entièrement conforme au RGPD : vos données de jeu restent sur votre appareil et vos choix de consentement sont scrupuleusement respectés.</p>
 
-                <p><em>Téléchargez Solitaire S.NOVA dès maintenant et redécouvrez le plaisir du Solitaire, où que vous soyez !</em></p>
-            </div>
+            <p><em>Téléchargez Solitaire S.NOVA dès maintenant et redécouvrez le plaisir du Solitaire, où que vous soyez !</em></p>
+        </div>
 
-            <div class="gallery-box">
-                <h3>Captures d'écran (Défiler horizontalement)</h3>
-                <div class="slider">
-                    <img src="solitaire.jpg" alt="Aperçu 1">
-                    <img src="solitaire1.jpg" alt="Aperçu 2">
-                    <img src="solitaire2.jpg" alt="Aperçu 3">
-                    <img src="solitaire3.jpg" alt="Aperçu 4">
-                    <img src="solitaire4.jpg" alt="Aperçu 5">
-                </div>
+        <div class="gallery-section">
+            <h3>Captures d'écran de l'application</h3>
+            <div class="image-vertical-list">
+                <img src="solitaire.jpg" alt="Aperçu 1">
+                <img src="solitaire1.jpg" alt="Aperçu 2">
+                <img src="solitaire2.jpg" alt="Aperçu 3">
+                <img src="solitaire3.jpg" alt="Aperçu 4">
+                <img src="solitaire4.jpg" alt="Aperçu 5">
             </div>
         </div>
 
