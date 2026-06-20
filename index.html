@@ -1,96 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayag Nova - Studio de Jeux & Applications</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
-        header { background: #ffffff; text-align: center; padding: 60px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-bottom: 1px solid #e2e8f0; }
-        header h1 { margin: 0; font-size: 2.8em; color: #1a202c; font-weight: 800; letter-spacing: -0.5px; }
-        header p { margin: 10px 0 0; color: #718096; font-size: 1.1em; }
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-        h2 { font-size: 1.8em; color: #1a202c; margin-bottom: 25px; font-weight: 700; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 10px; }
-        .card { background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px rgba(0,0,0,0.04); }
-        .card h3 { margin: 0 0 10px 0; color: #1a202c; font-size: 1.3em; font-weight: 700; }
-        .badge { display: inline-block; padding: 4px 10px; font-size: 0.8em; font-weight: 600; border-radius: 20px; margin-bottom: 15px; align-self: flex-start; }
-        .badge-blue { background: #ebf8ff; color: #2b6cb0; }
-        .badge-purple { background: #faf5ff; color: #6b46c1; }
-        .badge-green { background: #f0fff4; color: #38a169; }
-        .card p { color: #4a5568; font-size: 0.95em; margin: 0 0 20px 0; flex-grow: 1; }
-        .btn-view { display: block; text-align: center; background: #2b6cb0; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9em; transition: background 0.2s; }
-        .btn-view:hover { background: #2c5282; }
-        .btn-view-green { background: #38a169; }
-        .btn-view-green:hover { background: #2f855a; }
-        .legal-section { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 60px; border: 1px solid #e2e8f0; }
-        .legal-section h2 { border-bottom: 2px solid #edf2f7; padding-bottom: 12px; margin-bottom: 20px; }
-        .legal-section p { color: #4a5568; font-size: 0.95em; margin: 12px 0; }
-        .legal-section a { color: #2b6cb0; text-decoration: none; font-weight: 600; }
-        footer { text-align: center; padding: 40px 20px; margin-top: 60px; background: #ffffff; border-top: 1px solid #e2e8f0; color: #718096; font-size: 0.9em; }
-    </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sayag Nova - Studio de Jeux & Applications</title>
+   <style>
+       body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
+       header { background: #ffffff; text-align: center; padding: 40px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-bottom: 1px solid #e2e8f0; }
+       header h1 { margin: 0; }
+       .logo-site { max-height: 120px; width: auto; display: inline-block; vertical-align: middle; }
+       header p { margin: 15px 0 0; color: #718096; font-size: 1.1em; }
+       .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+       h2 { font-size: 1.8em; color: #1a202c; margin-bottom: 25px; font-weight: 700; }
+       .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 10px; }
+       .card { background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
+       .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px rgba(0,0,0,0.04); }
+       .card h3 { margin: 0 0 10px 0; color: #1a202c; font-size: 1.3em; font-weight: 700; }
+       .badge { display: inline-block; padding: 4px 10px; font-size: 0.8em; font-weight: 600; border-radius: 20px; margin-bottom: 15px; align-self: flex-start; }
+       .badge-blue { background: #ebf8ff; color: #2b6cb0; }
+       .badge-purple { background: #faf5ff; color: #6b46c1; }
+       .badge-green { background: #f0fff4; color: #38a169; }
+       .card p { color: #4a5568; font-size: 0.95em; margin: 0 0 20px 0; flex-grow: 1; }
+       .btn-view { display: block; text-align: center; background: #2b6cb0; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9em; transition: background 0.2s; }
+       .btn-view:hover { background: #2c5282; }
+       .btn-view-green { background: #38a169; }
+       .btn-view-green:hover { background: #2f855a; }
+       .legal-section { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 60px; border: 1px solid #e2e8f0; }
+       .legal-section h2 { border-bottom: 2px solid #edf2f7; padding-bottom: 12px; margin-bottom: 20px; }
+       .legal-section p { color: #4a5568; font-size: 0.95em; margin: 12px 0; }
+       .legal-section a { color: #2b6cb0; text-decoration: none; font-weight: 600; }
+       footer { text-align: center; padding: 40px 20px; margin-top: 60px; background: #ffffff; border-top: 1px solid #e2e8f0; color: #718096; font-size: 0.9em; }
+   </style>
 </head>
 <body>
 
-    <header>
-        <h1><img src="logo.jpg" alt="S.NOVA" style="max-height: 100px; width: auto;"></h1>
-        <p>Studio de développement d'applications mobiles — SASU Sayag Nova</p>
-    </header>
+   <header>
+       <h1><img src="logo.jpg" alt="sayag-nova" class="logo-site"></h1>
+       <p>Studio de développement d'applications mobiles — SASU Sayag Nova</p>
+   </header>
 
-    <div class="container">
-        <h2>Nos Jeux & Applications</h2>
-       
-        <div class="grid">
-            <div class="card">
-                <div>
-                    <h3>Rami S.NOVA</h3>
-                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                    <p>L'expérience ultime du Rami classique revisitée sur smartphone avec un mode en ligne et hors-ligne entièrement personnalisable.</p>
-                </div>
-                <a class="btn-view" href="rami.html">Découvrir l'application</a>
-            </div>
+   <div class="container">
+       <h2>Nos Jeux & Applications</h2>
 
-            <div class="card">
-                <div>
-                    <h3>Solitaire S.NOVA</h3>
-                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                    <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec un gameplay fluide, intelligent et moderne.</p>
-                </div>
-                <a class="btn-view" href="solitaire.html">Découvrir l'application</a>
-            </div>
+       <div class="grid">
+           <div class="card">
+               <div>
+                   <h3>Rami S.NOVA</h3>
+                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                   <p>L'expérience ultime du Rami classique revisitée sur smartphone avec un mode en ligne et hors-ligne entièrement personnalisable.</p>
+               </div>
+               <a class="btn-view" href="rami.html">Découvrir l'application</a>
+           </div>
 
-            <div class="card">
-                <div>
-                    <h3>Le Miroir du Destin</h3>
-                    <span class="badge badge-purple">Tarot / Premium</span>
-                    <p>Votre guide spirituel personnel. Plongez au cœur des arts divinatoires à travers le Tarot de Marseille, la numérologie et l'oracle.</p>
-                </div>
-                <a class="btn-view" href="miroir.html">Découvrir l'application</a>
-            </div>
+           <div class="card">
+               <div>
+                   <h3>Solitaire S.NOVA</h3>
+                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                   <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec un gameplay fluide, intelligent et moderne.</p>
+               </div>
+               <a class="btn-view" href="solitaire.html">Découvrir l'application</a>
+           </div>
 
-            <div class="card">
-                <div>
-                    <h3>Ma Tata</h3>
-                    <span class="badge badge-green">Éducatif / Sans Pub</span>
-                    <p>L'application compagnon bienveillante et totalement sécurisée pour transformer l'apprentissage des enfants en un vrai moment de plaisir.</p>
-                </div>
-                <a class="btn-view btn-view-green" href="matata.html">Découvrir l'application</a>
-            </div>
-        </div>
+           <div class="card">
+               <div>
+                   <h3>Le Miroir du Destin</h3>
+                   <span class="badge badge-purple">Tarot / Premium</span>
+                   <p>Votre guide spirituel personnel. Plongez au cœur des arts divinatoires à travers le Tarot de Marseille, la numérologie et l'oracle.</p>
+               </div>
+               <a class="btn-view" href="miroir.html">Découvrir l'application</a>
+           </div>
 
-        <div class="legal-section">
-            <h2>Mentions Légales</h2>
-            <p><strong>Éditeur du site :</strong> Ce site internet est édité par la SASU Sayag-nova.</p>
-            <p><strong>Siège social :</strong> 78 av des martyrs, 05400 Veynes, France.</p>
-            <p><strong>Contact :</strong> Pour toute demande de support ou d'information, contactez-nous par email : <a href="mailto:sayagyohannnova@gmail.com">sayagyohannnova@gmail.com</a>.</p>
-            <p><strong>Hébergement :</strong> Ce site vitrine est hébergé de manière statique par la plateforme GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, États-Unis.</p>
-        </div>
-    </div>
+           <div class="card">
+               <div>
+                   <h3>Ma Tata</h3>
+                   <span class="badge badge-green">Éducatif / Sans Pub</span>
+                   <p>L'application compagnon bienveillante et totalement sécurisée pour transformer l'apprentissage des enfants en un vrai moment de plaisir.</p>
+               </div>
+               <a class="btn-view btn-view-green" href="matata.html">Découvrir l'application</a>
+           </div>
+       </div>
 
-    <footer>
-        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
-    </footer>
+       <div class="legal-section">
+           <h2>Mentions Légales</h2>
+           <p><strong>Éditeur du site :</strong> Ce site internet est édité par la SASU Sayag-nova.</p>
+           <p><strong>Siège social :</strong> 78 av des martyrs, 05400 Veynes, France.</p>
+           <p><strong>Contact :</strong> Pour toute demande de support ou d'information, contactez-nous par email : <a href="mailto:sayagyohannnova@gmail.com">sayagyohannnova@gmail.com</a>.</p>
+           <p><strong>Hébergement :</strong> Ce site vitrine est hébergé de manière statique par la plateforme GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, États-Unis.</p>
+       </div>
+   </div>
+
+   <footer>
+       <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+   </footer>
 
 </body>
 </html>
