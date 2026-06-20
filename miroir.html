@@ -8,21 +8,21 @@
         body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
         nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         nav a { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 0.95em; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 30px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 40px; }
+        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
         .app-header h1 { margin: 0; font-size: 2.5em; color: #1a202c; }
         .badge { display: inline-block; padding: 4px 12px; background: #faf5ff; color: #6b46c1; font-size: 0.85em; font-weight: 600; border-radius: 20px; margin: 10px 0; }
-        .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
-        .description h2 { color: #2b6cb0; font-size: 1.4em; margin-top: 25px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
-        .description ul { padding-left: 20px; }
-        .description li { margin-bottom: 8px; }
-        .gallery-box { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; height: fit-content; text-align: center; }
-        .gallery-box h3 { margin-top: 0; color: #4a5568; font-size: 1.1em; margin-bottom: 15px; }
-        .slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 15px; scrollbar-width: thin; }
-        .slider img { width: auto; height: 350px; border-radius: 8px; scroll-snap-align: center; border: 1px solid #edf2f7; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .description-section { width: 100%; }
+        .description-section h2 { color: #2b6cb0; font-size: 1.6em; margin-top: 35px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
+        .description-section ul { padding-left: 20px; }
+        .description-section li { margin-bottom: 12px; }
+        .gallery-section { width: 100%; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+        .gallery-section h3 { text-align: center; color: #4a5568; font-size: 1.4em; margin-bottom: 25px; }
+        .image-vertical-list { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        .image-vertical-list img { max-width: 100%; height: auto; max-height: 550px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #edf2f7; }
         .btn-download { display: inline-block; background: #2b6cb0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
         .btn-download:hover { background: #2c5282; }
-        .footer-links { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+        .footer-links { border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 20px; }
         .footer-links a { color: #4a5568; font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #4a5568; }
     </style>
 </head>
@@ -40,54 +40,52 @@
             <a href="#" class="btn-download">Télécharger sur Google Play</a>
         </div>
 
-        <div class="grid">
-            <div class="description">
-                <p>Plongez au cœur des arts divinatoires avec une application unique qui fusionne sagesse ancestrale et technologie moderne. Que vous cherchiez des réponses à vos questions sentimentales, professionnelles ou spirituelles, "Le Miroir du Destin" vous offre une clarté immédiate et profonde.</p>
-               
-                <h2>Pourquoi choisir Le Miroir du Destin ?</h2>
-                <p>Une expérience holistique complète regroupant les outils les plus puissants de la voyance traditionnelle :</p>
-               
-                <ul>
-                    <li><strong>🔮 TAROT DE MARSEILLE :</strong> Explorez les 22 arcanes majeurs à travers des tirages variés (Conseil du Jour, Passé/Présent/Futur, Tirage en Croix, Guidance Hebdomadaire).</li>
-                    <li><strong>🔢 ARITHMANCIE (Numérologie) :</strong> Découvrez les secrets gravés dans votre identity. Calculez instantanément votre Chemin de Vie, votre Nombre d'Expression et votre Élan Spirituel.</li>
-                    <li><strong>🎲 KYBOMANCIE (Oracle des Dés) :</strong> Interrogez le hasard sacré à travers 56 combinaisons divinatoires.</li>
-                    <li><strong>🎡 LA ROUE DU DESTIN :</strong> Défiez le sort et recevez un message instantané pour guider vos choix.</li>
-                </ul>
+        <div class="description-section">
+            <p>Plongez au cœur des arts divinatoires avec une application unique qui fusionne sagesse ancestrale et technologie moderne. Que vous cherchiez des réponses à vos questions sentimentales, professionnelles ou spirituelles, "Le Miroir du Destin" vous offre une clarté immédiate et profonde.</p>
+          
+            <h2>Pourquoi choisir Le Miroir du Destin ?</h2>
+            <p>Une expérience holistique complète regroupant les outils les plus puissants de la voyance traditionnelle :</p>
+          
+            <ul>
+                <li><strong>🔮 TAROT DE MARSEILLE :</strong> Explorez les 22 arcanes majeurs à travers des tirages variés (Conseil du Jour, Passé/Présent/Futur, Tirage en Croix, Guidance Hebdomadaire).</li>
+                <li><strong>🔢 ARITHMANCIE (Numérologie) :</strong> Découvrez les secrets gravés dans votre identité. Calculez instantanément votre Chemin de Vie, votre Nombre d'Expression et votre Élan Spirituel.</li>
+                <li><strong>🎲 KYBOMANCIE (Oracle des Dés) :</strong> Interrogez le hasard sacré à travers 56 combinaisons divinatoires.</li>
+                <li><strong>🎡 LA ROUE DU DESTIN :</strong> Défiez le sort et recevez un message instantané pour guider vos choix.</li>
+            </ul>
 
-                <h2>Les points forts de l'application :</h2>
-                <ul>
-                    <li><strong>Interprétations riches et soignées :</strong> Des textes rédigés avec passion pour une guidance authentique.</li>
-                    <li><strong>Interface immersive :</strong> Une ambiance sonore et visuelle céleste pour une déconnexion totale.</li>
-                    <li><strong>Respect de votre vie privée :</strong> Vos données restent sur votre appareil et vos calculs sont privés.</li>
-                    <li><strong>Horoscope quotidien :</strong> Un point astrologique complet basé sur votre signe zodiacal.</li>
-                </ul>
+            <h2>Les points forts de l'application :</h2>
+            <ul>
+                <li><strong>Interprétations riches et soignées :</strong> Des textes rédigés avec passion pour une guidance authentique.</li>
+                <li><strong>Interface immersive :</strong> Une ambiance sonore et visuelle céleste pour une déconnexion totale.</li>
+                <li><strong>Respect de votre vie privée :</strong> Vos données restent sur votre appareil et vos calculs sont privés.</li>
+                <li><strong>Horoscope quotidien :</strong> Un point astrologique complet basé sur votre signe zodiacal.</li>
+            </ul>
 
-                <p><em>Rejoignez le cercle des initiés et commencez votre voyage initiatique dès aujourd'hui. L'univers a un message pour vous... saurez-vous l'écouter ? Téléchargez Le Miroir du Destin et reprenez le contrôle de votre futur.</em></p>
-            </div>
+            <p><em>Rejoignez le cercle des initiés et commencez votre voyage initiatique dès aujourd'hui. L'univers a un message pour vous... saurez-vous l'écouter ? Téléchargez Le Miroir du Destin et reprenez le contrôle de votre futur.</em></p>
+        </div>
 
-            <div class="gallery-box">
-                <h3>Captures d'écran (Défiler horizontalement)</h3>
-                <div class="slider">
-                    <img src="destin.jpg" alt="Aperçu 1">
-                    <img src="destin1.jpg" alt="Aperçu 2">
-                    <img src="destin2.jpg" alt="Aperçu 3">
-                    <img src="destin3.jpg" alt="Aperçu 4">
-                    <img src="destin4.jpg" alt="Aperçu 5">
-                    <img src="destin5.jpg" alt="Aperçu 6">
-                    <img src="destin6.jpg" alt="Aperçu 7">
-                    <img src="destin7.jpg" alt="Aperçu 8">
-                    <img src="destin8.jpg" alt="Aperçu 9">
-                    <img src="destin9.jpg" alt="Aperçu 10">
-                    <img src="destin10.jpg" alt="Aperçu 11">
-                    <img src="destin11.jpg" alt="Aperçu 12">
-                    <img src="destin12.jpg" alt="Aperçu 13">
-                    <img src="destin13.jpg" alt="Aperçu 14">
-                    <img src="destin14.jpg" alt="Aperçu 15">
-                    <img src="destin15.jpg" alt="Aperçu 16">
-                    <img src="destin16.jpg" alt="Aperçu 17">
-                    <img src="destin17.jpg" alt="Aperçu 18">
-                    <img src="destin18.jpg" alt="Aperçu 19">
-                </div>
+        <div class="gallery-section">
+            <h3>Captures d'écran de l'application</h3>
+            <div class="image-vertical-list">
+                <img src="destin.jpg" alt="Aperçu 1">
+                <img src="destin1.jpg" alt="Aperçu 2">
+                <img src="destin2.jpg" alt="Aperçu 3">
+                <img src="destin3.jpg" alt="Aperçu 4">
+                <img src="destin4.jpg" alt="Aperçu 5">
+                <img src="destin5.jpg" alt="Aperçu 6">
+                <img src="destin6.jpg" alt="Aperçu 7">
+                <img src="destin7.jpg" alt="Aperçu 8">
+                <img src="destin8.jpg" alt="Aperçu 9">
+                <img src="destin9.jpg" alt="Aperçu 10">
+                <img src="destin10.jpg" alt="Aperçu 11">
+                <img src="destin11.jpg" alt="Aperçu 12">
+                <img src="destin12.jpg" alt="Aperçu 13">
+                <img src="destin13.jpg" alt="Aperçu 14">
+                <img src="destin14.jpg" alt="Aperçu 15">
+                <img src="destin15.jpg" alt="Aperçu 16">
+                <img src="destin16.jpg" alt="Aperçu 17">
+                <img src="destin17.jpg" alt="Aperçu 18">
+                <img src="destin18.jpg" alt="Aperçu 19">
             </div>
         </div>
 
