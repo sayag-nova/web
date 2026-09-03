@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création Sur-Mesure & Devis - Sayag Nova</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
+        header { background: #ffffff; text-align: center; padding: 30px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-bottom: 1px solid #e2e8f0; }
+        .logo-site { width: 100%; max-width: 250px; height: auto; display: block; margin: 0 auto; }
+        
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .btn-back { display: inline-block; margin-bottom: 30px; color: #2b6cb0; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: color 0.2s; }
+        .btn-back:hover { color: #2c5282; text-decoration: underline; }
+
+        /* Section Présentation */
+        .hero-services { text-align: center; margin-bottom: 50px; }
+        .hero-services h1 { font-size: 2.5em; color: #1a202c; margin-bottom: 15px; }
+        .hero-services p { font-size: 1.1em; color: #4a5568; max-width: 700px; margin: 0 auto; }
+
+        /* Cartes de services */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .service-card { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; text-align: center; }
+        .service-card h2 { color: #2b6cb0; margin-top: 0; }
+        .service-card p { color: #4a5568; font-size: 0.95em; }
+        .service-icon { font-size: 3em; margin-bottom: 15px; }
+
+        /* Formulaire */
+        .form-section { background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .form-section h2 { margin-top: 0; color: #1a202c; border-bottom: 2px solid #edf2f7; padding-bottom: 10px; margin-bottom: 25px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; color: #2d3748; margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 1em; font-family: inherit; box-sizing: border-box; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #2b6cb0; box-shadow: 0 0 0 3px rgba(43,108,176,0.1); }
+        .form-group textarea { resize: vertical; min-height: 150px; }
+        
+        .btn-submit { background: #2b6cb0; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.2s; }
+        .btn-submit:hover { background: #2c5282; }
+
+        footer { text-align: center; padding: 40px 20px; margin-top: 60px; background: #ffffff; border-top: 1px solid #e2e8f0; color: #718096; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="logo.jpg" alt="Sayag Nova" class="logo-site">
+        </a>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+
+        <div class="hero-services">
+            <h1>Donnez vie à vos projets numériques</h1>
+            <p>Particuliers ou professionnels, le studio Sayag Nova met son expertise à votre service. Confiez-nous le développement de votre site internet ou de votre application mobile sur-mesure.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h2>Création de Sites Internet</h2>
+                <p>Site vitrine pour votre entreprise, portfolio, blog ou site e-commerce. Nous créons des sites modernes, rapides, adaptés aux mobiles (responsive) et optimisés pour le référencement (SEO).</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h2>Applications Mobiles</h2>
+                <p>Développement d'applications iOS et Android. Que ce soit pour un utilitaire pro, une application de service, ou même un jeu vidéo, nous vous accompagnons de l'idée jusqu'à la publication sur les stores.</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Demander un devis gratuit</h2>
+            <p style="margin-bottom: 25px; color: #718096;">Décrivez-nous votre projet en quelques mots. Nous étudierons votre demande et vous répondrons rapidement avec une proposition adaptée.</p>
+            
+            <!-- FORMULAIRE (L'URL d'action sera à modifier avec Formspree) -->
+            <form action=https://formspree.io/f/mnpqvlkl method="POST">
+                
+                <div class="form-group">
+                    <label for="nom">Nom / Entreprise *</label>
+                    <input type="text" id="nom" name="Nom" required placeholder="Votre nom ou le nom de votre société">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse E-mail *</label>
+                    <input type="email" id="email" name="Email" required placeholder="pour vous recontacter (ex: jean@mail.com)">
+                </div>
+
+                <div class="form-group">
+                    <label for="type-projet">Type de projet *</label>
+                    <select id="type-projet" name="Type de projet" required>
+                        <option value="" disabled selected>-- Sélectionnez une option --</option>
+                        <option value="Site Internet (Vitrine)">Site Internet (Vitrine / Présentation)</option>
+                        <option value="Site Internet (E-commerce)">Site Internet (E-commerce / Boutique)</option>
+                        <option value="Application Mobile (App pro/utilitaire)">Application Mobile (App pro/utilitaire)</option>
+                        <option value="Application Mobile (Jeu)">Application Mobile (Jeu)</option>
+                        <option value="Autre / Je ne sais pas encore">Autre / Je ne sais pas encore</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Détails du projet *</label>
+                    <textarea id="description" name="Description" required placeholder="Décrivez votre besoin : quelles seront les fonctionnalités ? Avez-vous une charte graphique ? Quel est le but de ce projet ?"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Envoyer ma demande de devis</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
