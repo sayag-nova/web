@@ -168,5 +168,4 @@ verve.com, 1008379, RESELLER, 0c8f5958fc2d6270
 video.unrulymedia.com, 947824792, RESELLER
 xandr.com, 13799, RESELLER
 xandr.com, 7353, RESELLER
-
 ownerdomain=sayagnova.com
