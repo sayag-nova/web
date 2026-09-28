@@ -1,198 +1,504 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-   <meta charset="UTF-8">
-   <link rel="canonical" href="https://www.sayagnova.com/"> 
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Sayag Nova - Studio de Jeux & Applications</title>
-   <!-- Inclusion de Font Awesome pour les logos officiels des réseaux sociaux -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <style>
-       body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
-       header { background: #ffffff; text-align: center; padding: 40px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-bottom: 1px solid #e2e8f0; }
-       header h1 { margin: 0; }
-       .logo-site { width: 100%; height: auto; display: block; margin: 0 auto; }
-       header p { margin: 15px 0 0; color: #718096; font-size: 1.1em; }
-       .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-       h2 { font-size: 1.8em; color: #1a202c; margin-bottom: 25px; font-weight: 700; }
-       .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 10px; }
-       .card { background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
-       .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px rgba(0,0,0,0.04); }
-       .card h3 { margin: 0 0 10px 0; color: #1a202c; font-size: 1.3em; font-weight: 700; }
-       .badge { display: inline-block; padding: 4px 10px; font-size: 0.8em; font-weight: 600; border-radius: 20px; margin-bottom: 15px; align-self: flex-start; }
-       .badge-blue { background: #ebf8ff; color: #2b6cb0; }
-       .badge-purple { background: #faf5ff; color: #6b46c1; }
-       .badge-green { background: #f0fff4; color: #38a169; }
-       .card p { color: #4a5568; font-size: 0.95em; margin: 0 0 20px 0; flex-grow: 1; }
-       .btn-view { display: block; text-align: center; background: #2b6cb0; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9em; transition: background 0.2s; }
-       .btn-view:hover { background: #2c5282; }
-       .btn-view-green { background: #38a169; }
-       .btn-view-green:hover { background: #2f855a; }
-       
-       /* Style de la section réseaux sociaux */
-       .social-section { text-align: center; margin: 50px 0 20px 0; }
-       .social-section h3 { margin-bottom: 20px; color: #1a202c; font-size: 1.4em; }
-       .social-icons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-       .social-icons a {
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           width: 50px;
-           height: 50px;
-           background: #ffffff;
-           border-radius: 50%;
-           font-size: 24px;
-           box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-           border: 1px solid #e2e8f0;
-           text-decoration: none;
-           transition: transform 0.2s ease, box-shadow 0.2s ease;
-       }
-       .social-icons a:hover {
-           transform: translateY(-4px);
-           box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-       }
-       /* Couleurs officielles au survol pour chaque réseau */
-       .social-icons a.facebook:hover { color: #1877f2; border-color: #1877f2; }
-       .social-icons a.instagram:hover { color: #e4405f; border-color: #e4405f; }
-       .social-icons a.tiktok:hover { color: #000000; border-color: #000000; }
-       .social-icons a.snapchat:hover { color: #fffc00; border-color: #fffc00; background-color: #333; }
-       .social-icons a.youtube:hover { color: #ff0000; border-color: #ff0000; }
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://www.sayagnova.com/"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sayag Nova - Studio de développement d'applications mobiles et de sites web sur-mesure.">
+    <title>Sayag Nova - Studio de Jeux & Applications</title>
+    
+    <!-- Polices Google Fonts pour un look moderne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            --secondary: #10b981; 
+            --secondary-hover: #059669;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
 
-       .legal-section { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 60px; border: 1px solid #e2e8f0; }
-       .legal-section h2 { border-bottom: 2px solid #edf2f7; padding-bottom: 12px; margin-bottom: 20px; }
-       .legal-section p { color: #4a5568; font-size: 0.95em; margin: 12px 0; }
-       .legal-section a { color: #2b6cb0; text-decoration: none; font-weight: 600; }
-       <footer> text-align: center; padding: 40px 20px; margin-top: 60px; background: #ffffff; border-top: 1px solid #e2e8f0; color: #718096; font-size: 0.9em; }
-   </style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+
+        /* --- Section Hero (Accueil) --- */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hero-logo {
+            max-width: 180px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Bannière "Services / Devis" Percutante --- */
+        .promo-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 40px 30px;
+            margin: -30px auto 50px auto;
+            max-width: 1000px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .promo-banner h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .promo-banner p.promo-desc {
+            font-size: 1.1em;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+
+        .promo-features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .promo-feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.95em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .promo-feature-item i {
+            color: #38bdf8; /* Bleu ciel pour le contraste */
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            color: white;
+        }
+
+        /* --- Contenu Principal --- */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto 60px; 
+            padding: 0 20px; 
+        }
+
+        .section-title { 
+            font-size: 2em; 
+            text-align: center;
+            margin-bottom: 40px; 
+            font-weight: 700; 
+        }
+
+        /* --- Grille et Cartes --- */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+            border-color: #cbd5e1;
+        }
+
+        .card-icon {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .card h3 { 
+            margin: 0 0 10px 0; 
+            font-size: 1.4em; 
+            font-weight: 600; 
+        }
+
+        .badge { 
+            display: inline-block; 
+            padding: 6px 12px; 
+            font-size: 0.75em; 
+            font-weight: 600; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-blue { background: #eff6ff; color: #1d4ed8; }
+        .badge-purple { background: #faf5ff; color: #7e22ce; }
+        .badge-green { background: #f0fdf4; color: #15803d; }
+
+        .card p { 
+            color: var(--gray); 
+            font-size: 0.95em; 
+            margin: 0 0 25px 0; 
+            flex-grow: 1; 
+        }
+
+        .btn-view { 
+            display: block; 
+            text-align: center; 
+            background: #f1f5f9; 
+            color: var(--dark); 
+            padding: 12px 15px; 
+            text-decoration: none; 
+            border-radius: 10px; 
+            font-weight: 600; 
+            font-size: 0.95em; 
+            transition: all 0.2s; 
+        }
+        
+        .btn-view:hover { 
+            background: var(--primary); 
+            color: white;
+        }
+
+        .btn-view-green:hover { 
+            background: var(--secondary);
+            color: white; 
+        }
+
+        /* --- Réseaux sociaux --- */
+        .social-section { 
+            text-align: center; 
+            margin: 80px 0 40px; 
+        }
+
+        .social-section h3 { margin-bottom: 25px; font-size: 1.5em; font-weight: 600; }
+
+        .social-icons { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            font-size: 24px;
+            color: var(--gray);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover { transform: translateY(-5px); color: white; }
+        .social-icons a.facebook:hover { background: #1877f2; }
+        .social-icons a.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-icons a.tiktok:hover { background: #000000; }
+        .social-icons a.snapchat:hover { background: #fffc00; color: #000; }
+        .social-icons a.youtube:hover { background: #ff0000; }
+
+        /* --- Mentions Légales --- */
+        .legal-details {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            margin: 60px auto 0;
+            max-width: 800px;
+            overflow: hidden;
+        }
+
+        .legal-details summary {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--gray);
+            list-style: none;
+            text-align: center;
+        }
+        
+        .legal-details summary::-webkit-details-marker { display: none; }
+        .legal-details summary:hover { color: var(--dark); background: #f8fafc; }
+
+        .legal-content {
+            padding: 20px 30px 30px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9em;
+            color: var(--gray);
+        }
+
+        .legal-content p { margin: 10px 0; }
+        .legal-content a { color: var(--primary); text-decoration: none; }
+
+        /* --- Footer --- */
+        footer { 
+            text-align: center; 
+            padding: 30px 20px; 
+            margin-top: 40px; 
+            color: var(--gray); 
+            font-size: 0.9em; 
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .promo-banner {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            .promo-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-   <header>
-       <h1><img src="logo.jpg" alt="sayag-nova" class="logo-site"></h1>
-       <p>Studio de développement d'applications mobiles — SASU Sayag Nova</p>
-   </header>
+    <!-- Section Hero -->
+    <header class="hero animate-fade-up">
+        <img src="logo.jpg" alt="Sayag Nova Logo" class="hero-logo" onerror="this.style.display='none'">
+        <h1>Studio Sayag Nova</h1>
+        <p>Créateur d'expériences numériques sur-mesure pour les particuliers et les professionnels.</p>
+    </header>
 
-   <!-- Bannière Services / Devis -->
-   <div style="background-color: #1a202c; color: white; text-align: center; padding: 30px 20px;">
-       <h2 style="color: white; margin: 0 0 10px 0; font-size: 1.5em;">Vous avez un projet numérique ?</h2>
-       <p style="margin: 0 0 20px 0; font-size: 1.05em; color: #a0aec0;">Nous développons des sites web et des applications mobiles sur-mesure pour les particuliers et les professionnels.</p>
-       <a href="services.html" style="background-color: #38a169; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; transition: background 0.2s;">Demander un devis gratuit</a>
-   </div>
+    <!-- NOUVEL ENCART : Bannière Services / Devis -->
+    <div class="promo-banner animate-fade-up" style="animation-delay: 0.2s;">
+        <h2>🚀 Vous avez un projet ? Nous avons l'expertise.</h2>
+        <p class="promo-desc">
+            Création de sites web et d'applications mobiles sur-mesure. Chez Sayag Nova, nous ne faisons pas que coder : nous donnons vie à vos idées avec des solutions modernes et adaptées à vos besoins.
+        </p>
+        
+        <div class="promo-features">
+            <div class="promo-feature-item">
+                <i class="fa-solid fa-ear-listen"></i> Écoute très attentive
+            </div>
+            <div class="promo-feature-item">
+                <i class="fa-solid fa-tags"></i> Prix vraiment attractifs
+            </div>
+            <div class="promo-feature-item">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Design moderne & fluide
+            </div>
+        </div>
 
-   <div class="container">
-       <h2>Nos Jeux & Applications</h2>
+        <a href="services.html" class="cta-button">Obtenir mon devis gratuit</a>
+    </div>
 
-       <div class="grid">
-           <div class="card">
-               <div>
-                   <h3>Rami S.NOVA</h3>
-                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                   <p>L'expérience ultime du Rami classique revisitée sur smartphone avec un mode en ligne et hors-ligne entièrement personnalisable.</p>
-               </div>
-               <a class="btn-view" href="rami.html">Découvrir l'application</a>
-           </div>
+    <!-- Reste du site -->
+    <div class="container">
+        <h2 class="section-title animate-fade-up" style="animation-delay: 0.3s;">Découvrez nos Créations</h2>
 
-           <div class="card">
-               <div>
-                   <h3>Solitaire S.NOVA</h3>
-                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                   <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec un gameplay fluide, intelligent et moderne.</p>
-               </div>
-               <a class="btn-view" href="solitaire.html">Découvrir l'application</a>
-           </div>
-           
-           <div class="card">
-               <div>
-                   <h3>Les dames S.Nova</h3>
-                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                   <p>Le célèbre jeu de dames de retour sur votre écran. Jouez en ligne ou hors-ligne, en solo ou en multijoueur classique.</p>
-               </div>
-               <a class="btn-view" href="dames.html">Découvrir l'application</a>
-           </div>
+        <div class="grid animate-fade-up" style="animation-delay: 0.4s;">
+            
+            <div class="card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Rami S.Nova</h3>
+                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                    <p>L'expérience ultime du Rami classique revisitée sur smartphone avec un mode en ligne et hors-ligne entièrement personnalisable.</p>
+                </div>
+                <a class="btn-view" href="rami.html">Découvrir l'application</a>
+            </div>
 
-           <div class="card">
-               <div>
-                   <h3>Les échecs S.Nova</h3>
-                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                   <p>L'expérience authentique des échecs. Une application simple et redoutablement efficace pour jouer en solo ou affronter le monde entier.</p>
-               </div>
-               <a class="btn-view" href="echecs.html">Découvrir l'application</a>
-           </div>
+            <div class="card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-clone"></i></div>
+                    <h3>Solitaire S.Nova</h3>
+                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                    <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec un gameplay fluide, intelligent et moderne.</p>
+                </div>
+                <a class="btn-view" href="solitaire.html">Découvrir l'application</a>
+            </div>
+            
+            <div class="card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-chess-board"></i></div>
+                    <h3>Les Dames S.Nova</h3>
+                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                    <p>Le célèbre jeu de dames de retour sur votre écran. Jouez en ligne ou hors-ligne, en solo ou en multijoueur classique.</p>
+                </div>
+                <a class="btn-view" href="dames.html">Découvrir l'application</a>
+            </div>
 
-           <div class="card">
-               <div>
-                   <h3>Sudoku S.Nova</h3>
-                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                   <p>Stimulez votre cerveau avec le jeu de réflexion incontournable. Des grilles pour tous les niveaux et une interface claire pour garder l'esprit vif !</p>
-               </div>
-               <a class="btn-view" href="sudoku.html">Découvrir l'application</a>
-           </div>
+            <div class="card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-chess-knight"></i></div>
+                    <h3>Les Échecs S.Nova</h3>
+                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                    <p>L'expérience authentique des échecs. Une application simple et redoutablement efficace pour jouer en solo ou affronter le monde.</p>
+                </div>
+                <a class="btn-view" href="echecs.html">Découvrir l'application</a>
+            </div>
 
-           <!-- Nouvelle carte : Multimots S.Nova -->
-           <div class="card">
-               <div>
-                   <h3>Multimots S.Nova</h3>
-                   <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
-                   <p>Mots croisés, casés, mêlés et mystères : 4 jeux incontournables réunis en une seule application avec plus de 600 niveaux !</p>
-               </div>
-               <a class="btn-view" href="multimots.html">Découvrir l'application</a>
-           </div>
+            <div class="card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-table-cells"></i></div>
+                    <h3>Sudoku S.Nova</h3>
+                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                    <p>Stimulez votre cerveau avec le jeu de réflexion incontournable. Des grilles pour tous les niveaux et une interface claire.</p>
+                </div>
+                <a class="btn-view" href="sudoku.html">Découvrir l'application</a>
+            </div>
 
-           <div class="card">
-               <div>
-                   <h3>Miroir du Destin : Tarot</h3>
-                   <span class="badge badge-purple">Tarot / Premium</span>
-                   <p>Votre guide spirituel personnel. Plongez au cœur des arts divinatoires à travers le Tarot de Marseille, la numérologie et l'oracle.</p>
-               </div>
-               <a class="btn-view" href="miroir.html">Découvrir l'application</a>
-           </div>
+            <div class="card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-spell-check"></i></div>
+                    <h3>Multimots S.Nova</h3>
+                    <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
+                    <p>Mots croisés, casés, mêlés et mystères : 4 jeux incontournables réunis en une seule application avec plus de 600 niveaux !</p>
+                </div>
+                <a class="btn-view" href="multimots.html">Découvrir l'application</a>
+            </div>
 
-           <div class="card">
-               <div>
-                   <h3>Ma Tata</h3>
-                   <span class="badge badge-green">Éducatif / Achat unique</span>
-                   <p>L'application compagnon bienveillante et totalement sécurisée pour transformer l'apprentissage des enfants en un vrai moment de plaisir.</p>
-               </div>
-               <a class="btn-view btn-view-green" href="matata.html">Découvrir l'application</a>
-           </div>
-       </div>
+            <div class="card">
+                <div>
+                    <div class="card-icon" style="color: #7e22ce;"><i class="fa-solid fa-moon"></i></div>
+                    <h3>Miroir du Destin</h3>
+                    <span class="badge badge-purple">Tarot / Premium</span>
+                    <p>Votre guide spirituel personnel. Plongez au cœur des arts divinatoires à travers le Tarot de Marseille, la numérologie et l'oracle.</p>
+                </div>
+                <a class="btn-view" href="miroir.html">Découvrir l'application</a>
+            </div>
 
-       <!-- Section Réseaux Sociaux -->
-       <div class="social-section">
-           <h3>Suivez-nous sur les réseaux</h3>
-           <div class="social-icons">
-               <a href="https://mobile.facebook.com/?al_applink_data=%7B%22profile_id_messenger%22:%22100001454478283%22,%22messenger_major_version%22:%22579%22,%22qpl_join_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22app_switch_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22deeplink_source%22:%22trep%22,%22is_mailbox_empty%22:false%7D" target="_blank" class="facebook" aria-label="Facebook" style="color: #4a5568;">
-                   <i class="fab fa-facebook-f"></i>
-               </a>
-               <a href="https://www.instagram.com/sayagnova?stkn=MTc4bW8xdWFhYm1yMw%3D%3D&utm_source=qr" target="_blank" class="instagram" aria-label="Instagram" style="color: #4a5568;">
-                   <i class="fab fa-instagram"></i>
-               </a>
-               <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="tiktok" aria-label="TikTok" style="color: #4a5568;">
-                   <i class="fab fa-tiktok"></i>
-               </a>
-               <a href="https://snapchat.com/t/VWJeN2JE" target="_blank" class="snapchat" aria-label="Snapchat" style="color: #4a5568;">
-                   <i class="fab fa-snapchat"></i>
-               </a>
-               <a href="https://youtube.com/@sayag-nova?si=AT_7BWGrIzmbYv6p" target="_blank" class="youtube" aria-label="YouTube" style="color: #4a5568;">
-                   <i class="fab fa-youtube"></i>
-               </a>
-           </div>
-       </div>
+            <div class="card">
+                <div>
+                    <div class="card-icon" style="color: #10b981;"><i class="fa-solid fa-child-reaching"></i></div>
+                    <h3>Ma Tata</h3>
+                    <span class="badge badge-green">Éducatif / Achat unique</span>
+                    <p>L'application compagnon bienveillante et totalement sécurisée pour transformer l'apprentissage des enfants en un vrai plaisir.</p>
+                </div>
+                <a class="btn-view btn-view-green" href="matata.html">Découvrir l'application</a>
+            </div>
+        </div>
 
-       <div class="legal-section">
-           <h2>Mentions Légales</h2>
-           <p><strong>Éditeur du site :</strong> Ce site internet est édité par la SASU Sayag-nova, au capital social de 100 €, immatriculée au Registre du Commerce et des Sociétés (RCS) de GAP sous le numéro SIRET 10627440000014.</p>
-           <p><strong>Siège social :</strong> 78 av des martyrs, 05400 Veynes, France.</p>
-           <p><strong>Directeur de la publication :</strong> Yohann Sayag.</p>
-           <p><strong>Numéro de TVA :</strong> FR23106274400.</p>
-           <p><strong>Contact :</strong> Pour toute demande de support ou d'information, contactez-nous par email : <a href="mailto:sayagyohannnova@gmail.com">sayagyohannnova@gmail.com</a>.</p>
-           <p><strong>Hébergement :</strong> Ce site vitrine est hébergé de manière statique par la plateforme GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, États-Unis.</p>
-       </div>
-   </div>
+        <!-- Section Réseaux Sociaux -->
+        <div class="social-section animate-fade-up" style="animation-delay: 0.5s;">
+            <h3>Rejoignez la communauté</h3>
+            <div class="social-icons">
+                <a href="https://mobile.facebook.com/?al_applink_data=%7B%22profile_id_messenger%22:%22100001454478283%22,%22messenger_major_version%22:%22579%22,%22qpl_join_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22app_switch_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22deeplink_source%22:%22trep%22,%22is_mailbox_empty%22:false%7D" target="_blank" class="facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/sayagnova?stkn=MTc4bW8xdWFhYm1yMw%3D%3D&utm_source=qr" target="_blank" class="instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="tiktok" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://snapchat.com/t/VWJeN2JE" target="_blank" class="snapchat" aria-label="Snapchat">
+                    <i class="fab fa-snapchat"></i>
+                </a>
+                <a href="https://youtube.com/@sayag-nova?si=AT_7BWGrIzmbYv6p" target="_blank" class="youtube" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
 
-   <footer>
-       <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
-   </footer>
+        <!-- Mentions Légales dans un accordéon -->
+        <details class="legal-details animate-fade-up" style="animation-delay: 0.6s;">
+            <summary><i class="fa-solid fa-scale-balanced"></i> Afficher les mentions légales</summary>
+            <div class="legal-content">
+                <p><strong>Éditeur du site :</strong> Ce site internet est édité par la SASU Sayag-nova, au capital social de 100 €, immatriculée au Registre du Commerce et des Sociétés (RCS) de GAP sous le numéro SIRET 10627440000014.</p>
+                <p><strong>Siège social :</strong> 78 av des martyrs, 05400 Veynes, France.</p>
+                <p><strong>Directeur de la publication :</strong> Yohann Sayag.</p>
+                <p><strong>Numéro de TVA :</strong> FR23106274400.</p>
+                <p><strong>Contact :</strong> Pour toute demande de support ou d'information, contactez-nous par email : <a href="mailto:sayagyohannnova@gmail.com">sayagyohannnova@gmail.com</a>.</p>
+                <p><strong>Hébergement :</strong> Ce site vitrine est hébergé de manière statique par la plateforme GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, États-Unis.</p>
+            </div>
+        </details>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
 
 </body>
 </html>
