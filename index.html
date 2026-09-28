@@ -55,16 +55,18 @@
         .hero {
             background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
             text-align: center;
-            padding: 60px 20px 40px;
+            /* Plus de padding en haut pour que l'image touche le bord */
+            padding: 0 0 40px 0; 
             border-bottom: 1px solid #e2e8f0;
         }
 
-        .hero-logo {
-            max-width: 180px;
+        /* Style pour la banderole bord à bord */
+        .hero-banner {
+            width: 100%;
             height: auto;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Ombre douce sous la banderole */
+            margin-bottom: 30px; /* Espace avant le titre */
         }
 
         .hero h1 {
@@ -73,6 +75,7 @@
             color: var(--dark);
             margin-bottom: 10px;
             letter-spacing: -0.5px;
+            padding: 0 20px; /* Pour éviter que le texte touche les bords sur mobile */
         }
 
         .hero p {
@@ -80,6 +83,7 @@
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* --- Bannière "Services / Devis" Percutante --- */
@@ -130,7 +134,7 @@
         }
 
         .promo-feature-item i {
-            color: #38bdf8; /* Bleu ciel pour le contraste */
+            color: #38bdf8;
         }
 
         .cta-button {
@@ -346,12 +350,14 @@
 
     <!-- Section Hero -->
     <header class="hero animate-fade-up">
-        <img src="logo.jpg" alt="Sayag Nova Logo" class="hero-logo" onerror="this.style.display='none'">
+        <!-- Ta banderole prendra désormais 100% de la largeur -->
+        <img src="logo.jpg" alt="Sayag Nova Bannière" class="hero-banner" onerror="this.style.display='none'">
+        
         <h1>Studio Sayag Nova</h1>
         <p>Créateur d'expériences numériques sur-mesure pour les particuliers et les professionnels.</p>
     </header>
 
-    <!-- NOUVEL ENCART : Bannière Services / Devis -->
+    <!-- Encart Bannière Services / Devis -->
     <div class="promo-banner animate-fade-up" style="animation-delay: 0.2s;">
         <h2>🚀 Vous avez un projet ? Nous avons l'expertise.</h2>
         <p class="promo-desc">
