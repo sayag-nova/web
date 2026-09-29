@@ -1,103 +1,403 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Miroir du Destin : Tarot - Sayag Nova</title>
-   <style>
-       body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
-       nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-       nav a { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 0.95em; }
-       .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 40px; }
-       .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
-       .app-header h1 { margin: 0; font-size: 2.5em; color: #1a202c; }
-       .badge { display: inline-block; padding: 4px 12px; background: #faf5ff; color: #6b46c1; font-size: 0.85em; font-weight: 600; border-radius: 20px; margin: 10px 0; }
-       .description-section { width: 100%; }
-       .description-section h2 { color: #2b6cb0; font-size: 1.6em; margin-top: 35px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
-       .description-section ul { padding-left: 20px; }
-       .description-section li { margin-bottom: 12px; }
-       .gallery-section { width: 100%; border-top: 1px solid #e2e8f0; padding-top: 30px; }
-       .gallery-section h3 { text-align: center; color: #4a5568; font-size: 1.4em; margin-bottom: 25px; }
-       .image-vertical-list { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-       .image-vertical-list img { max-width: 100%; height: auto; max-height: 550px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #edf2f7; }
-       .btn-download { display: inline-block; background: #2b6cb0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
-       .btn-download:hover { background: #2c5282; }
-       .footer-links { border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 20px; }
-       .footer-links a { color: #4a5568; font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #4a5568; }
-   </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miroir du Destin : Tarot - Sayag Nova</title>
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS (Carrousel d'images) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            /* Couleurs mystiques pour le Tarot (Violet) */
+            --primary: #7e22ce; 
+            --primary-hover: #6b21a8;
+            --primary-light: #faf5ff;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        nav { 
+            background: var(--card-bg); 
+            padding: 15px 20px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a { 
+            color: var(--gray); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95em; 
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav a:hover { color: var(--primary); }
+
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 40px; 
+        }
+
+        /* --- En-tête façon App Store --- */
+        .app-hero {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .app-info h1 { 
+            margin: 0 0 10px 0; 
+            font-size: 2.2em; 
+            color: var(--dark); 
+            line-height: 1.2;
+        }
+
+        .badge { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            background: var(--primary-light); 
+            color: var(--primary); 
+            font-size: 0.85em; 
+            font-weight: 600; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+        }
+
+        .app-info p {
+            color: var(--gray);
+            font-size: 1.05em;
+            margin-bottom: 20px;
+        }
+
+        .btn-download { 
+            display: inline-flex; 
+            align-items: center;
+            gap: 10px;
+            background: var(--primary); 
+            color: white; 
+            padding: 12px 28px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 1.05em;
+            box-shadow: 0 4px 15px rgba(126, 34, 206, 0.3);
+            transition: all 0.3s ease; 
+        }
+        .btn-download:hover { 
+            background: var(--primary-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(126, 34, 206, 0.4);
+        }
+
+        /* --- Carrousel d'images (Swiper) --- */
+        .gallery-section { width: 100%; }
+        .gallery-section h2 { font-size: 1.6em; margin-bottom: 20px; color: var(--dark); }
+
+        .swiper { width: 100%; padding-bottom: 40px; }
+        .swiper-slide { width: auto; display: flex; justify-content: center; }
+        .swiper-slide img {
+            height: 450px; 
+            width: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .swiper-button-next, .swiper-button-prev { color: var(--primary); }
+        .swiper-pagination-bullet-active { background: var(--primary); }
+
+        /* --- Sections Texte --- */
+        .content-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-card h2 { 
+            color: var(--dark); 
+            font-size: 1.5em; 
+            margin-bottom: 20px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card > p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* --- Grille / Tableau des Fonctionnalités --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-box {
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            color: var(--dark);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .cta-final {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 10px;
+            padding: 15px;
+            background: var(--primary-light);
+            border-radius: 12px;
+        }
+
+        .footer-links { 
+            text-align: center;
+            padding-top: 20px; 
+            margin-top: 20px; 
+        }
+        .footer-links a { 
+            color: var(--gray); 
+            font-size: 0.9em; 
+            text-decoration: none; 
+            font-weight: 500;
+        }
+        .footer-links a:hover { color: var(--primary); text-decoration: underline; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .app-hero { flex-direction: column; text-align: center; }
+            .swiper-slide img { height: 350px; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-   <nav>
-       <a href="index.html">&larr; Retour à l'accueil</a>
-   </nav>
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Retour au studio</a>
+    </nav>
 
-   <div class="container">
-       <div class="app-header">
-           <h1>Miroir du Destin : Tarot</h1>
-           <span class="badge">Tarot / Premium</span>
-           <p><strong>Votre guide spirituel personnel et quotidien.</strong></p>
-           <a href="https://play.google.com/store/apps/details?id=com.sayagnova.miroirdestin&utm_source=emea_Med" target="_blank" class="btn-download">Télécharger sur Google Play</a>
-       </div>
+    <div class="container">
+        
+        <!-- En-tête de l'application -->
+        <div class="app-hero">
+            <img src="destinLogo.jpg" alt="Logo Miroir du Destin" class="app-icon">
+            <div class="app-info">
+                <h1>Miroir du Destin</h1>
+                <span class="badge"><i class="fa-solid fa-moon"></i> Tarot / Premium</span>
+                <p><strong>Votre guide spirituel personnel et quotidien.</strong></p>
+                <a href="https://play.google.com/store/apps/details?id=com.sayagnova.miroirdestin&utm_source=emea_Med" target="_blank" class="btn-download">
+                    <i class="fa-brands fa-google-play"></i> Télécharger sur Google Play
+                </a>
+            </div>
+        </div>
 
-       <div class="description-section">
-           <p>Plongez au cœur des arts divinatoires avec une application unique qui fusionne sagesse ancestrale et technologie moderne. Que vous cherchiez des réponses à vos questions sentimentales, professionnelles ou spirituelles, "Miroir du Destin : Tarot" vous offre une clarté immédiate et profonde.</p>
+        <!-- Section Carrousel -->
+        <div class="gallery-section">
+            <h2>Aperçu de l'application</h2>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="destin.jpg" alt="Aperçu 1"></div>
+                    <div class="swiper-slide"><img src="destin1.jpg" alt="Aperçu 2"></div>
+                    <div class="swiper-slide"><img src="destin2.jpg" alt="Aperçu 3"></div>
+                    <div class="swiper-slide"><img src="destin3.jpg" alt="Aperçu 4"></div>
+                    <div class="swiper-slide"><img src="destin4.jpg" alt="Aperçu 5"></div>
+                    <div class="swiper-slide"><img src="destin5.jpg" alt="Aperçu 6"></div>
+                    <div class="swiper-slide"><img src="destin6.jpg" alt="Aperçu 7"></div>
+                    <div class="swiper-slide"><img src="destin7.jpg" alt="Aperçu 8"></div>
+                    <div class="swiper-slide"><img src="destin8.jpg" alt="Aperçu 9"></div>
+                    <div class="swiper-slide"><img src="destin9.jpg" alt="Aperçu 10"></div>
+                    <div class="swiper-slide"><img src="destin10.jpg" alt="Aperçu 11"></div>
+                    <div class="swiper-slide"><img src="destin11.jpg" alt="Aperçu 12"></div>
+                    <div class="swiper-slide"><img src="destin12.jpg" alt="Aperçu 13"></div>
+                    <div class="swiper-slide"><img src="destin13.jpg" alt="Aperçu 14"></div>
+                    <div class="swiper-slide"><img src="destin14.jpg" alt="Aperçu 15"></div>
+                    <div class="swiper-slide"><img src="destin15.jpg" alt="Aperçu 16"></div>
+                    <div class="swiper-slide"><img src="destin16.jpg" alt="Aperçu 17"></div>
+                    <div class="swiper-slide"><img src="destin17.jpg" alt="Aperçu 18"></div>
+                    <div class="swiper-slide"><img src="destin18.jpg" alt="Aperçu 19"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
 
-           <h2>Pourquoi choisir Miroir du Destin : Tarot ?</h2>
-           <p>Une expérience holistique complète regroupant les outils les plus puissants de la voyance traditionnelle :</p>
+        <!-- Section 1 : L'expérience Holistique -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-eye"></i> Plongez au cœur des arts divinatoires</h2>
+            <p>Fusionnant sagesse ancestrale et technologie moderne, <strong>Miroir du Destin : Tarot</strong> vous offre une clarté immédiate et profonde pour répondre à vos questions sentimentales, professionnelles ou spirituelles.</p>
+            
+            <h3 style="text-align: center; margin-top: 40px; color: var(--dark);">Une expérience holistique complète</h3>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h4>Tarot de Marseille</h4>
+                    <p>Explorez les 22 arcanes majeurs à travers des tirages variés (Conseil du Jour, Passé/Présent/Futur, Tirage en Croix, Guidance).</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-calculator"></i></div>
+                    <h4>Arithmancie</h4>
+                    <p>Découvrez les secrets de la Numérologie. Calculez votre Chemin de Vie, Nombre d'Expression et Élan Spirituel.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-dice"></i></div>
+                    <h4>Kybomancie</h4>
+                    <p>Interrogez le hasard sacré (l'Oracle des Dés) à travers 56 combinaisons divinatoires uniques.</p>
+                </div>
 
-           <ul>
-               <li><strong>🔮 TAROT DE MARSEILLE :</strong> Explorez les 22 arcanes majeurs à travers des tirages variés (Conseil du Jour, Passé/Présent/Futur, Tirage en Croix, Guidance Hebdomadaire).</li>
-               <li><strong>🔢 ARITHMANCIE (Numérologie) :</strong> Découvrez les secrets gravés dans votre identité. Calculez instantanément votre Chemin de Vie, votre Nombre d'Expression et votre Élan Spirituel.</li>
-               <li><strong>🎲 KYBOMANCIE (Oracle des Dés) :</strong> Interrogez le hasard sacré à travers 56 combinaisons divinatoires.</li>
-               <li><strong>🎡 LA ROUE DU DESTIN :</strong> Défiez le sort et recevez un message instantané pour guider vos choix.</li>
-           </ul>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                    <h4>La Roue du Destin</h4>
+                    <p>Défiez le sort et recevez un message instantané pour vous guider dans vos choix quotidiens.</p>
+                </div>
+            </div>
+        </div>
 
-           <h2>Les points forts de l'application :</h2>
-           <ul>
-               <li><strong>Interprétations riches et soignées :</strong> Des textes rédigés avec passion pour une guidance authentique.</li>
-               <li><strong>Interface immersive :</strong> Une ambiance sonore et visuelle céleste pour une déconnexion totale.</li>
-               <li><strong>Respect de votre vie privée :</strong> Vos données restent sur votre appareil et vos calculs sont privés.</li>
-               <li><strong>Horoscope quotidien :</strong> Un point astrologique complet basé sur votre signe zodiacal.</li>
-           </ul>
+        <!-- Section 2 : Les Points Forts -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-sparkles"></i> Les points forts de l'application</h2>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                    <h4>Interprétations soignées</h4>
+                    <p>Des textes riches, rédigés avec passion pour vous offrir une guidance authentique et personnalisée.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-music"></i></div>
+                    <h4>Interface immersive</h4>
+                    <p>Une ambiance sonore et visuelle céleste conçue pour une déconnexion et une relaxation totale.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+                    <h4>Horoscope quotidien</h4>
+                    <p>Un point astrologique complet et mis à jour chaque jour, basé sur votre signe zodiacal.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+                    <h4>Vie privée respectée</h4>
+                    <p>Vos données restent exclusivement sur votre appareil et vos calculs/tirages demeurent strictement privés.</p>
+                </div>
+            </div>
 
-           <p><em>Rejoignez le cercle des initiés et commencez votre voyage initiatique dès aujourd'hui. L'univers a un message pour vous... saurez-vous l'écouter ? Téléchargez Miroir du Destin : Tarot et reprenez le contrôle de votre futur.</em></p>
-       </div>
+            <div class="cta-final">
+                <i class="fa-solid fa-gem" style="margin-right: 8px;"></i> L'univers a un message pour vous... Téléchargez Miroir du Destin et reprenez le contrôle de votre futur.
+            </div>
+        </div>
 
-       <div class="gallery-section">
-           <h3>Captures d'écran de l'application</h3>
-           <div class="image-vertical-list">
-               <img src="destin.jpg" alt="Aperçu 1">
-               <img src="destin1.jpg" alt="Aperçu 2">
-               <img src="destin2.jpg" alt="Aperçu 3">
-               <img src="destin3.jpg" alt="Aperçu 4">
-               <img src="destin4.jpg" alt="Aperçu 5">
-               <img src="destin5.jpg" alt="Aperçu 6">
-               <img src="destin6.jpg" alt="Aperçu 7">
-               <img src="destin7.jpg" alt="Aperçu 8">
-               <img src="destin8.jpg" alt="Aperçu 9">
-               <img src="destin9.jpg" alt="Aperçu 10">
-               <img src="destin10.jpg" alt="Aperçu 11">
-               <img src="destin11.jpg" alt="Aperçu 12">
-               <img src="destin12.jpg" alt="Aperçu 13">
-               <img src="destin13.jpg" alt="Aperçu 14">
-               <img src="destin14.jpg" alt="Aperçu 15">
-               <img src="destin15.jpg" alt="Aperçu 16">
-               <img src="destin16.jpg" alt="Aperçu 17">
-               <img src="destin17.jpg" alt="Aperçu 18">
-               <img src="destin18.jpg" alt="Aperçu 19">
-           </div>
-       </div>
+        <!-- Section RGPD et Suppression de compte -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-shield-halved"></i> Suppression de compte et de données</h2>
+            <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong><a href="mailto:sayagyohannnova@gmail.com" style="color: var(--primary);">sayagyohannnova@gmail.com</a></strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
+        </div>
 
-       <div class="description-section">
-           <h2>Suppression de compte et de données</h2>
-           <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong>sayagyohannnova@gmail.com</strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
-       </div>
+        <!-- Liens footer -->
+        <div class="footer-links">
+            <a href="privacy-miroir.html"><i class="fa-solid fa-file-contract"></i> Politique de Confidentialité du Miroir du Destin</a>
+        </div>
+        
+    </div>
 
-       <div class="footer-links">
-           <a href="privacy-miroir.html">Politique de Confidentialité du Miroir du Destin</a>
-       </div>
-   </div>
-
+    <!-- Script Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 </body>
 </html>
