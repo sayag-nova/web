@@ -4,79 +4,353 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku S.Nova - Sayag Nova</title>
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS (Carrousel d'images) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
-        nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        nav a { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 0.95em; }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 40px; }
-        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
-        .app-header h1 { margin: 0; font-size: 2.5em; color: #1a202c; }
-        .badge { display: inline-block; padding: 4px 12px; background: #ebf8ff; color: #2b6cb0; font-size: 0.85em; font-weight: 600; border-radius: 20px; margin: 10px 0; }
-        .description-section { width: 100%; }
-        .description-section h2 { color: #2b6cb0; font-size: 1.6em; margin-top: 35px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
-        .description-section ul { padding-left: 20px; }
-        .description-section li { margin-bottom: 12px; }
-        .gallery-section { width: 100%; border-top: 1px solid #e2e8f0; padding-top: 30px; }
-        .gallery-section h3 { text-align: center; color: #4a5568; font-size: 1.4em; margin-bottom: 25px; }
-        .image-vertical-list { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-        .image-vertical-list img { max-width: 100%; height: auto; max-height: 550px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #edf2f7; }
-        .btn-download { display: inline-block; background: #2b6cb0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
-        .btn-download:hover { background: #2c5282; }
-        .footer-links { border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 20px; }
-        .footer-links a { color: #4a5568; font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #4a5568; }
+        :root {
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            --primary-light: #eff6ff;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        nav { 
+            background: var(--card-bg); 
+            padding: 15px 20px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a { 
+            color: var(--gray); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95em; 
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav a:hover { color: var(--primary); }
+
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 40px; 
+        }
+
+        /* --- En-tête façon App Store --- */
+        .app-hero {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .app-info h1 { 
+            margin: 0 0 10px 0; 
+            font-size: 2.2em; 
+            color: var(--dark); 
+            line-height: 1.2;
+        }
+
+        .badge { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            background: var(--primary-light); 
+            color: var(--primary); 
+            font-size: 0.85em; 
+            font-weight: 600; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+        }
+
+        .app-info p {
+            color: var(--gray);
+            font-size: 1.05em;
+            margin-bottom: 20px;
+        }
+
+        .btn-download { 
+            display: inline-flex; 
+            align-items: center;
+            gap: 10px;
+            background: var(--primary); 
+            color: white; 
+            padding: 12px 28px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 1.05em;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease; 
+        }
+        .btn-download:hover { 
+            background: var(--primary-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* --- Carrousel d'images (Swiper) --- */
+        .gallery-section { width: 100%; }
+        .gallery-section h2 { font-size: 1.6em; margin-bottom: 20px; color: var(--dark); }
+
+        .swiper { width: 100%; padding-bottom: 40px; }
+        .swiper-slide { width: auto; display: flex; justify-content: center; }
+        .swiper-slide img {
+            height: 450px; 
+            width: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .swiper-button-next, .swiper-button-prev { color: var(--primary); }
+        .swiper-pagination-bullet-active { background: var(--primary); }
+
+        /* --- Sections Texte --- */
+        .content-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-card h2 { 
+            color: var(--dark); 
+            font-size: 1.5em; 
+            margin-bottom: 20px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card > p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* --- Grille / Tableau des Fonctionnalités --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-box {
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            color: var(--dark);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .cta-final {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 10px;
+            padding: 15px;
+            background: var(--primary-light);
+            border-radius: 12px;
+        }
+
+        .footer-links { 
+            text-align: center;
+            padding-top: 20px; 
+            margin-top: 20px; 
+        }
+        .footer-links a { 
+            color: var(--gray); 
+            font-size: 0.9em; 
+            text-decoration: none; 
+            font-weight: 500;
+        }
+        .footer-links a:hover { color: var(--primary); text-decoration: underline; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .app-hero { flex-direction: column; text-align: center; }
+            .swiper-slide img { height: 350px; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">&larr; Retour à l'accueil</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Retour au studio</a>
     </nav>
 
     <div class="container">
-        <div class="app-header">
-            <h1>Sudoku S.Nova</h1>
-            <span class="badge">Application Gratuite &middot; Contient des annonces</span>
-            <p><strong>Le classique du casse-tête, avec un défi qui grandit avec vous !</strong></p>
-            <!-- Remplace le "#" par ton vrai lien Google Play quand il sera prêt -->
-            <a href=https://play.google.com/store/apps/details?id=com.sayagnova.sudoku&pcampaignid=web_share target="_blank" class="btn-download">Télécharger sur Google Play</a>
-        </div>
-
-        <div class="description-section">
-            <p>Que vous souhaitiez vous détendre après une longue journée ou stimuler activement votre cerveau, <strong>Sudoku S.Nova</strong> est l'application qu'il vous faut. Lancez-vous dans une grande aventure où votre logique sera mise à rude épreuve !</p>
-          
-            <h2>Pourquoi choisir Sudoku S.Nova ?</h2>
-            <ul>
-                <li><strong>📈 Une difficulté progressive :</strong> Relevez le défi à travers près de 1000 niveaux ! La difficulté s'adapte et augmente au fur et à mesure que vous réussissez les grilles pour vous challenger en permanence.</li>
-                <li><strong>🃏 Des Jokers de secours :</strong> Vous êtes coincé sur une case complexe ? Pas de panique ! Utilisez vos jokers pour obtenir de l'aide et avancer sans aucune frustration.</li>
-                <li><strong>📊 Tableau de statistiques :</strong> Gardez un œil sur votre évolution. Suivez vos performances en détail grâce à un tableau complet récapitulant toutes les parties que vous avez jouées.</li>
-            </ul>
-
-            <h2>Respect de votre vie privée :</h2>
-            <p>🛡️ Nous prenons votre confidentialité au sérieux. Vos données de jeu restent locales et vos choix de consentement sont scrupuleusement respectés, pour jouer l'esprit tranquille.</p>
-
-            <p><em>Téléchargez Sudoku S.Nova dès aujourd'hui et gardez l'esprit vif au quotidien !</em></p>
-        </div>
-
-        <div class="gallery-section">
-            <h3>Captures d'écran de l'application</h3>
-            <div class="image-vertical-list">
-                <img src="sudoku.png" alt="Aperçu 1">
-                <img src="sudoku1.jpg" alt="Aperçu 2">
-                <img src="sudoku2.jpg" alt="Aperçu 3">
-                <img src="sudoku3.jpg" alt="Aperçu 4">
-                <img src="sudoku4.jpg" alt="Aperçu 5">
+        
+        <!-- En-tête de l'application -->
+        <div class="app-hero">
+            <img src="sudokuLogo.png" alt="Logo Sudoku S.Nova" class="app-icon">
+            <div class="app-info">
+                <h1>Sudoku S.Nova</h1>
+                <span class="badge"><i class="fa-solid fa-star"></i> Application Gratuite &middot; Pubs</span>
+                <p><strong>Le classique du casse-tête, avec un défi qui grandit avec vous !</strong></p>
+                <a href="https://play.google.com/store/apps/details?id=com.sayagnova.sudoku&pcampaignid=web_share" target="_blank" class="btn-download">
+                    <i class="fa-brands fa-google-play"></i> Télécharger sur Google Play
+                </a>
             </div>
         </div>
 
-        <div class="description-section">
-           <h2>Suppression de compte et de données</h2>
-           <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong>sayagyohannnova@gmail.com</strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
-       </div>
-
-        <div class="footer-links">
-            <a href="privacy-jeux.html">Politique de Confidentialité de Sudoku S.Nova</a>
+        <!-- Section Carrousel -->
+        <div class="gallery-section">
+            <h2>Aperçu de l'application</h2>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- Captures d'écran Sudoku -->
+                    <div class="swiper-slide"><img src="sudoku.png" alt="Aperçu 1"></div>
+                    <div class="swiper-slide"><img src="sudoku1.jpg" alt="Aperçu 2"></div>
+                    <div class="swiper-slide"><img src="sudoku2.jpg" alt="Aperçu 3"></div>
+                    <div class="swiper-slide"><img src="sudoku3.jpg" alt="Aperçu 4"></div>
+                    <div class="swiper-slide"><img src="sudoku4.jpg" alt="Aperçu 5"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
+
+        <!-- Section Description & Grille -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-table-cells"></i> À propos du jeu</h2>
+            <p>Que vous souhaitiez vous détendre après une longue journée ou stimuler activement votre cerveau, <strong>Sudoku S.Nova</strong> est l'application qu'il vous faut. Lancez-vous dans une grande aventure où votre logique sera mise à rude épreuve !</p>
+            
+            <h3 style="text-align: center; margin-top: 40px; color: var(--dark);">Pourquoi choisir Sudoku S.Nova ?</h3>
+            
+            <!-- Grille des fonctionnalités (3 éléments) -->
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h4>Une difficulté progressive</h4>
+                    <p>Relevez le défi à travers près de 1000 niveaux ! La difficulté s'adapte et augmente au fur et à mesure de vos réussites.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-life-ring"></i></div>
+                    <h4>Des Jokers de secours</h4>
+                    <p>Coincé sur une case complexe ? Pas de panique ! Utilisez vos jokers pour obtenir de l'aide et avancer sans frustration.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                    <h4>Tableau de statistiques</h4>
+                    <p>Gardez un œil sur votre évolution. Suivez vos performances en détail grâce à un tableau récapitulant toutes vos parties jouées.</p>
+                </div>
+            </div>
+
+            <div class="cta-final">
+                <i class="fa-solid fa-lightbulb" style="margin-right: 8px;"></i> Téléchargez Sudoku S.Nova dès aujourd'hui et gardez l'esprit vif au quotidien !
+            </div>
+        </div>
+
+        <!-- Section Confidentialité et Données -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-shield-halved"></i> Vie privée et données</h2>
+            <p>🛡️ Nous prenons votre confidentialité au sérieux. Vos données de jeu restent locales et vos choix de consentement sont scrupuleusement respectés, pour jouer l'esprit tranquille.</p>
+            
+            <h3 style="margin-top: 20px; font-size: 1.1em; color: var(--dark);">Suppression de compte et de données</h3>
+            <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong><a href="mailto:sayagyohannnova@gmail.com" style="color: var(--primary);">sayagyohannnova@gmail.com</a></strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
+        </div>
+
+        <!-- Liens footer -->
+        <div class="footer-links">
+            <a href="privacy-jeux.html"><i class="fa-solid fa-file-contract"></i> Politique de Confidentialité de Sudoku S.Nova</a>
+        </div>
+        
     </div>
 
+    <!-- Script Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 </body>
 </html>
