@@ -4,90 +4,397 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rami S.NOVA - Sayag Nova</title>
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS (Carrousel d'images) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
-        nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        nav a { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 0.95em; }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 40px; }
-        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
-        .app-header h1 { margin: 0; font-size: 2.5em; color: #1a202c; }
-        .badge { display: inline-block; padding: 4px 12px; background: #ebf8ff; color: #2b6cb0; font-size: 0.85em; font-weight: 600; border-radius: 20px; margin: 10px 0; }
-        .description-section { width: 100%; }
-        .description-section h2 { color: #2b6cb0; font-size: 1.6em; margin-top: 35px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
-        .description-section ul { padding-left: 20px; }
-        .description-section li { margin-bottom: 12px; }
-        .gallery-section { width: 100%; border-top: 1px solid #e2e8f0; padding-top: 30px; }
-        .gallery-section h3 { text-align: center; color: #4a5568; font-size: 1.4em; margin-bottom: 25px; }
-        .image-vertical-list { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-        .image-vertical-list img { max-width: 100%; height: auto; max-height: 550px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #edf2f7; }
-        .btn-download { display: inline-block; background: #2b6cb0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
-        .btn-download:hover { background: #2c5282; }
-        .footer-links { border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 20px; }
-        .footer-links a { color: #4a5568; font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #4a5568; }
+        :root {
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            --primary-light: #eff6ff;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        nav { 
+            background: var(--card-bg); 
+            padding: 15px 20px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a { 
+            color: var(--gray); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95em; 
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav a:hover { color: var(--primary); }
+
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 40px; 
+        }
+
+        /* --- En-tête façon App Store --- */
+        .app-hero {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .app-info h1 { 
+            margin: 0 0 10px 0; 
+            font-size: 2.2em; 
+            color: var(--dark); 
+            line-height: 1.2;
+        }
+
+        .badge { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            background: var(--primary-light); 
+            color: var(--primary); 
+            font-size: 0.85em; 
+            font-weight: 600; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+        }
+
+        .app-info p {
+            color: var(--gray);
+            font-size: 1.05em;
+            margin-bottom: 20px;
+        }
+
+        .btn-download { 
+            display: inline-flex; 
+            align-items: center;
+            gap: 10px;
+            background: var(--primary); 
+            color: white; 
+            padding: 12px 28px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 1.05em;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease; 
+        }
+        .btn-download:hover { 
+            background: var(--primary-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* --- Carrousel d'images (Swiper) --- */
+        .gallery-section { width: 100%; }
+        .gallery-section h2 { font-size: 1.6em; margin-bottom: 20px; color: var(--dark); }
+
+        .swiper { width: 100%; padding-bottom: 40px; }
+        .swiper-slide { width: auto; display: flex; justify-content: center; }
+        .swiper-slide img {
+            height: 450px; 
+            width: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .swiper-button-next, .swiper-button-prev { color: var(--primary); }
+        .swiper-pagination-bullet-active { background: var(--primary); }
+
+        /* --- Sections Texte --- */
+        .content-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-card h2 { 
+            color: var(--dark); 
+            font-size: 1.5em; 
+            margin-bottom: 20px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card > p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* --- Grille / Tableau des Fonctionnalités --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-box {
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            color: var(--dark);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .cta-final {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 10px;
+            padding: 15px;
+            background: var(--primary-light);
+            border-radius: 12px;
+        }
+
+        .footer-links { 
+            text-align: center;
+            padding-top: 20px; 
+            margin-top: 20px; 
+        }
+        .footer-links a { 
+            color: var(--gray); 
+            font-size: 0.9em; 
+            text-decoration: none; 
+            font-weight: 500;
+        }
+        .footer-links a:hover { color: var(--primary); text-decoration: underline; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .app-hero { flex-direction: column; text-align: center; }
+            .swiper-slide img { height: 350px; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">&larr; Retour à l'accueil</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Retour au studio</a>
     </nav>
 
     <div class="container">
-        <div class="app-header">
-            <h1>Rami S.NOVA</h1>
-            <span class="badge">Application Gratuite &middot; Contient des annonces</span>
-            <p><strong>L'expérience ultime du Rami classique revisitée pour votre smartphone !</strong></p>
-            <a href="https://play.google.com/store/apps/details?id=com.sayagnova.rami&utm_source=emea_Med" target="_blank" class="btn-download">Télécharger sur Google Play</a>
-        </div>
-
-        <div class="description-section">
-            <p>Que vous soyez un joueur débutant ou un expert des combinaisons, Rami S.NOVA vous offre une interface fluide, moderne et entièrement personnalisable pour des heures de plaisir.</p>
-          
-            <h2>Pourquoi choisir Rami S.NOVA ?</h2>
-            <ul>
-                <li><strong>🔹 MULTIJOUEUR EN LIGNE :</strong> Créez des salons privés pour jouer avec vos amis ou rejoignez des parties rapides pour affronter des joueurs du monde entier. Grâce à notre système d'invitation simplifié, défiez vos proches en un clic !</li>
-                <li><strong>🔹 MODE SOLO HORS-LIGNE :</strong> Entraînez-vous partout, même sans connexion internet ! Affrontez notre intelligence artificielle disponible en plusieurs niveaux de difficulté (Facile, Normal, Difficile).</li>
-                <li><strong>🔹 PERSONNALISATION TOTALE :</strong> Faites de votre tapis de jeu un espace unique. Changez l'ambiance visuelle, la couleur du tapis (Vert, Bleu, Rouge), le dos de vos cartes et même le décor des menus.</li>
-                <li><strong>🔹 SUIVI DES SCORES PRÉCIS :</strong> Notre tableau de bord affiche les scores cumulés manche après manche et conserve vos statistiques détaillées (taux de victoire, Rami Sec, points).</li>
-                <li><strong>🔹 RÈGLES MODULABLES :</strong> Nombre de jokers, points de première pose, mode élimination ou classique... c'est vous qui décidez des règles du salon.</li>
-            </ul>
-
-            <h2>Les points forts :</h2>
-            <ul>
-                <li><strong>✨ Design Professionnel :</strong> Une interface épurée et ergonomique pour un confort de jeu optimal.</li>
-                <li><strong>🔒 Respect de la Vie Privée :</strong> Une gestion transparente de vos données, conforme aux standards RGPD.</li>
-                <li><strong>🚀 Performance :</strong> Une application légère, rapide et stable.</li>
-                <li><strong>🃏 Fair-Play :</strong> Un mélange des cartes certifié aléatoire pour une compétition honnête.</li>
-            </ul>
-
-            <p><em>Rejoignez dès maintenant la communauté Rami S.NOVA et montrez que vous êtes le maître des tierces et des carrés ! Téléchargez l'application gratuitement et commencez votre première manche !</em></p>
-        </div>
-
-        <div class="gallery-section">
-            <h3>Captures d'écran de l'application</h3>
-            <div class="image-vertical-list">
-                <img src="rami.png" alt="Aperçu 1">
-                <img src="rami1.jpg" alt="Aperçu 2">
-                <img src="rami2.jpg" alt="Aperçu 3">
-                <img src="rami3.jpg" alt="Aperçu 4">
-                <img src="rami4.jpg" alt="Aperçu 5">
-                <img src="rami5.jpg" alt="Aperçu 6">
-                <img src="rami6.jpg" alt="Aperçu 7">
-                <img src="rami7.jpg" alt="Aperçu 8">
-                <img src="rami8.jpg" alt="Aperçu 9">
-                <img src="rami9.jpg" alt="Aperçu 10">
+        
+        <!-- En-tête de l'application -->
+        <div class="app-hero">
+            <img src="ramiLogo.png" alt="Logo Rami S.NOVA" class="app-icon">
+            <div class="app-info">
+                <h1>Rami S.NOVA</h1>
+                <span class="badge"><i class="fa-solid fa-star"></i> Application Gratuite &middot; Pubs</span>
+                <p><strong>L'expérience ultime du Rami classique revisitée pour votre smartphone !</strong></p>
+                <a href="https://play.google.com/store/apps/details?id=com.sayagnova.rami&utm_source=emea_Med" target="_blank" class="btn-download">
+                    <i class="fa-brands fa-google-play"></i> Télécharger sur Google Play
+                </a>
             </div>
         </div>
 
-        <div class="description-section">
-           <h2>Suppression de compte et de données</h2>
-           <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong>sayagyohannnova@gmail.com</strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
-       </div>
-
-        <div class="footer-links">
-            <a href="privacy-jeux.html">Politique de Confidentialité de Rami S.NOVA</a>
+        <!-- Section Carrousel -->
+        <div class="gallery-section">
+            <h2>Aperçu de l'application</h2>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- Captures d'écran Rami -->
+                    <div class="swiper-slide"><img src="rami.png" alt="Aperçu 1"></div>
+                    <div class="swiper-slide"><img src="rami1.jpg" alt="Aperçu 2"></div>
+                    <div class="swiper-slide"><img src="rami2.jpg" alt="Aperçu 3"></div>
+                    <div class="swiper-slide"><img src="rami3.jpg" alt="Aperçu 4"></div>
+                    <div class="swiper-slide"><img src="rami4.jpg" alt="Aperçu 5"></div>
+                    <div class="swiper-slide"><img src="rami5.jpg" alt="Aperçu 6"></div>
+                    <div class="swiper-slide"><img src="rami6.jpg" alt="Aperçu 7"></div>
+                    <div class="swiper-slide"><img src="rami7.jpg" alt="Aperçu 8"></div>
+                    <div class="swiper-slide"><img src="rami8.jpg" alt="Aperçu 9"></div>
+                    <div class="swiper-slide"><img src="rami9.jpg" alt="Aperçu 10"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
+
+        <!-- Section 1 : Description & Grille Fonctionnalités -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-layer-group"></i> À propos du jeu</h2>
+            <p>Que vous soyez un joueur débutant ou un expert des combinaisons, Rami S.NOVA vous offre une interface fluide, moderne et entièrement personnalisable pour des heures de plaisir.</p>
+            
+            <h3 style="text-align: center; margin-top: 40px; color: var(--dark);">Pourquoi choisir Rami S.NOVA ?</h3>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h4>Multijoueur en ligne</h4>
+                    <p>Créez des salons privés avec vos amis ou rejoignez des parties rapides pour affronter des joueurs du monde entier.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h4>Mode Solo hors-ligne</h4>
+                    <p>Entraînez-vous partout ! Affrontez notre IA disponible en plusieurs niveaux de difficulté (Facile, Normal, Difficile).</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h4>Personnalisation totale</h4>
+                    <p>Couleur du tapis (Vert, Bleu, Rouge), dos des cartes et décor des menus : faites de votre espace de jeu un lieu unique.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>Suivi des scores précis</h4>
+                    <p>Notre tableau de bord conserve vos statistiques détaillées (taux de victoire, Rami Sec, points cumulés).</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h4>Règles modulables</h4>
+                    <p>Nombre de jokers, points de première pose, mode élimination ou classique... c'est vous qui décidez des règles !</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 : Les Points Forts / Qualité -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-award"></i> La qualité S.NOVA</h2>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h4>Design Professionnel</h4>
+                    <p>Une interface épurée et ergonomique conçue pour un confort de jeu optimal sur tous les écrans.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Respect de la Vie Privée</h4>
+                    <p>Une gestion transparente et sécurisée de vos données, conforme aux standards RGPD.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h4>Haute Performance</h4>
+                    <p>Une application très légère, rapide au lancement, et parfaitement stable en cours de partie.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h4>Fair-Play garanti</h4>
+                    <p>Un mélange de cartes certifié aléatoire pour assurer une compétition toujours honnête.</p>
+                </div>
+            </div>
+
+            <div class="cta-final">
+                <i class="fa-solid fa-crown" style="margin-right: 8px;"></i> Rejoignez la communauté Rami S.NOVA et montrez que vous êtes le maître des tierces et des carrés !
+            </div>
+        </div>
+
+        <!-- Section RGPD et Suppression de compte -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-trash-can"></i> Suppression de compte et de données</h2>
+            <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong><a href="mailto:sayagyohannnova@gmail.com" style="color: var(--primary);">sayagyohannnova@gmail.com</a></strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
+        </div>
+
+        <!-- Liens footer -->
+        <div class="footer-links">
+            <a href="privacy-jeux.html"><i class="fa-solid fa-file-contract"></i> Politique de Confidentialité de Rami S.NOVA</a>
+        </div>
+        
     </div>
 
+    <!-- Script Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 </body>
 </html>
