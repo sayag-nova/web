@@ -4,80 +4,327 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les dames S.Nova - Sayag Nova</title>
+    
+    <!-- Polices Google Fonts (les mêmes que l'accueil) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS (Pour le carrousel d'images) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d3748; background-color: #f7fafc; }
-        nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        nav a { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 0.95em; }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 40px; }
-        .app-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
-        .app-header h1 { margin: 0; font-size: 2.5em; color: #1a202c; }
-        .badge { display: inline-block; padding: 4px 12px; background: #ebf8ff; color: #2b6cb0; font-size: 0.85em; font-weight: 600; border-radius: 20px; margin: 10px 0; }
-        .description-section { width: 100%; }
-        .description-section h2 { color: #2b6cb0; font-size: 1.6em; margin-top: 35px; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; }
-        .description-section ul { padding-left: 20px; }
-        .description-section li { margin-bottom: 12px; }
-        .gallery-section { width: 100%; border-top: 1px solid #e2e8f0; padding-top: 30px; }
-        .gallery-section h3 { text-align: center; color: #4a5568; font-size: 1.4em; margin-bottom: 25px; }
-        .image-vertical-list { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-        .image-vertical-list img { max-width: 100%; height: auto; max-height: 550px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #edf2f7; }
-        .btn-download { display: inline-block; background: #2b6cb0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
-        .btn-download:hover { background: #2c5282; }
-        .footer-links { border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 20px; }
-        .footer-links a { color: #4a5568; font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #4a5568; }
+        :root {
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        nav { 
+            background: var(--card-bg); 
+            padding: 15px 20px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a { 
+            color: var(--gray); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95em; 
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav a:hover { color: var(--primary); }
+
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 40px; 
+        }
+
+        /* --- En-tête façon App Store --- */
+        .app-hero {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .app-info h1 { 
+            margin: 0 0 10px 0; 
+            font-size: 2.2em; 
+            color: var(--dark); 
+            line-height: 1.2;
+        }
+
+        .badge { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            background: #eff6ff; 
+            color: var(--primary); 
+            font-size: 0.85em; 
+            font-weight: 600; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+        }
+
+        .app-info p {
+            color: var(--gray);
+            font-size: 1.05em;
+            margin-bottom: 20px;
+        }
+
+        .btn-download { 
+            display: inline-flex; 
+            align-items: center;
+            gap: 10px;
+            background: var(--primary); 
+            color: white; 
+            padding: 12px 28px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 1.05em;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease; 
+        }
+        .btn-download:hover { 
+            background: var(--primary-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* --- Carrousel d'images (Swiper) --- */
+        .gallery-section { 
+            width: 100%; 
+        }
+        .gallery-section h2 {
+            font-size: 1.6em; 
+            margin-bottom: 20px; 
+            color: var(--dark);
+        }
+
+        .swiper {
+            width: 100%;
+            padding-bottom: 40px; /* Espace pour les points de navigation */
+        }
+
+        .swiper-slide {
+            width: auto; /* Permet aux images de dicter leur largeur */
+            display: flex;
+            justify-content: center;
+        }
+
+        .swiper-slide img {
+            height: 450px; /* Hauteur fixe pour que toutes les images soient alignées */
+            width: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Personnalisation des flèches et points du carrousel */
+        .swiper-button-next, .swiper-button-prev { color: var(--primary); }
+        .swiper-pagination-bullet-active { background: var(--primary); }
+
+        /* --- Sections Texte (Description & Legal) --- */
+        .content-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-card h2 { 
+            color: var(--dark); 
+            font-size: 1.5em; 
+            margin-bottom: 20px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .content-card ul { 
+            padding-left: 0; 
+            list-style: none;
+        }
+
+        .content-card li { 
+            margin-bottom: 15px; 
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .content-card li i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .footer-links { 
+            text-align: center;
+            padding-top: 20px; 
+            margin-top: 20px; 
+        }
+        .footer-links a { 
+            color: var(--gray); 
+            font-size: 0.9em; 
+            text-decoration: none; 
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .app-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .swiper-slide img {
+                height: 350px; /* Plus petit sur mobile */
+            }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">&larr; Retour à l'accueil</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Retour au studio</a>
     </nav>
 
     <div class="container">
-        <div class="app-header">
-            <h1>Les dames S.Nova</h1>
-            <span class="badge">Application Gratuite &middot; Contient des annonces</span>
-            <p><strong>La stratégie classique, réinventée sur votre mobile !</strong></p>
-            <!-- Remplace le "#" par ton vrai lien Google Play quand il sera prêt -->
-            <a href=https://play.google.com/store/apps/details?id=com.sayagnova.lesdames&pcampaignid=web_share target="_blank" class="btn-download">Télécharger sur Google Play</a>
-        </div>
-
-        <div class="description-section">
-            <p>Le célèbre jeu de dames fait son grand retour sur votre écran. Que vous souhaitiez affronter l'intelligence artificielle hors-ligne ou défier des joueurs du monde entier, Les dames S.Nova offre une expérience fluide, intuitive et pensée pour tous les types de joueurs.</p>
-          
-            <h2>Pourquoi choisir Les dames S.Nova ?</h2>
-            <ul>
-                <li><strong>♟️ Modes de jeu complets :</strong> Jouez en solo hors-ligne pour vous entraîner, affrontez vos amis en multijoueur local sur le même écran, ou lancez-vous dans des parties en ligne passionnantes.</li>
-                <li><strong>⚡ Gameplay fluide :</strong> Une interface moderne, intelligente et sans fioritures pour vous concentrer uniquement sur votre stratégie.</li>
-                <li><strong>♥️ Une expérience immersive :</strong> Profitez d'une application légère, optimisée pour tous les appareils, avec des commandes tactiles réactives et précises.</li>
-            </ul>
-
-            <h2>Respect de votre vie privée :</h2>
-            <p>🛡️ Nous prenons votre confidentialité au sérieux. Les dames S.Nova est entièrement conforme au RGPD : vos données de jeu sont protégées et vos choix de consentement sont scrupuleusement respectés.</p>
-
-            <p><em>Téléchargez Les dames S.Nova dès maintenant et devenez le maître du damier !</em></p>
-        </div>
-
-        <div class="gallery-section">
-            <h3>Captures d'écran de l'application</h3>
-            <div class="image-vertical-list">
-                <img src="lesdames.png" alt="Aperçu 1">
-                <img src="lesdames1.jpg" alt="Aperçu 2">
-                <img src="lesdames2.jpg" alt="Aperçu 3">
-                <img src="lesdames3.jpg" alt="Aperçu 4">
-                <img src="lesdames4.jpg" alt="Aperçu 5">
-                <img src="lesdames5.jpg" alt="Aperçu 6">
+        
+        <!-- En-tête de l'application -->
+        <div class="app-hero">
+            <img src="lesdamesLogo.png" alt="Logo Les dames S.Nova" class="app-icon">
+            <div class="app-info">
+                <h1>Les dames S.Nova</h1>
+                <span class="badge"><i class="fa-solid fa-star"></i> Application Gratuite &middot; Pubs</span>
+                <p><strong>La stratégie classique, réinventée sur votre mobile !</strong></p>
+                <a href="https://play.google.com/store/apps/details?id=com.sayagnova.lesdames&pcampaignid=web_share" target="_blank" class="btn-download">
+                    <i class="fa-brands fa-google-play"></i> Télécharger sur Google Play
+                </a>
             </div>
         </div>
 
-        <div class="description-section">
-           <h2>Suppression de compte et de données</h2>
-           <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong>sayagyohannnova@gmail.com</strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
-       </div>
-
-        <div class="footer-links">
-            <a href="privacy-jeux.html">Politique de Confidentialité de Les dames S.Nova</a>
+        <!-- Section Carrousel -->
+        <div class="gallery-section">
+            <h2>Aperçu de l'application</h2>
+            
+            <!-- Conteneur Swiper principal -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slides (Ajoute ou modifie tes images ici) -->
+                    <div class="swiper-slide"><img src="lesdames.png" alt="Aperçu 1"></div>
+                    <div class="swiper-slide"><img src="lesdames1.jpg" alt="Aperçu 2"></div>
+                    <div class="swiper-slide"><img src="lesdames2.jpg" alt="Aperçu 3"></div>
+                    <div class="swiper-slide"><img src="lesdames3.jpg" alt="Aperçu 4"></div>
+                    <div class="swiper-slide"><img src="lesdames4.jpg" alt="Aperçu 5"></div>
+                    <div class="swiper-slide"><img src="lesdames5.jpg" alt="Aperçu 6"></div>
+                </div>
+                <!-- Points de navigation en bas -->
+                <div class="swiper-pagination"></div>
+                <!-- Flèches de navigation (optionnelles sur mobile, pratiques sur PC) -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
+
+        <!-- Section Description -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-circle-info"></i> À propos du jeu</h2>
+            <p>Le célèbre jeu de dames fait son grand retour sur votre écran. Que vous souhaitiez affronter l'intelligence artificielle hors-ligne ou défier des joueurs du monde entier, Les dames S.Nova offre une expérience fluide, intuitive et pensée pour tous les types de joueurs.</p>
+            
+            <h3 style="margin-top: 25px; margin-bottom: 15px; color: var(--dark);">Pourquoi choisir Les dames S.Nova ?</h3>
+            <ul>
+                <li><i class="fa-solid fa-chess-pawn"></i> <strong>Modes de jeu complets :</strong> Jouez en solo hors-ligne pour vous entraîner, affrontez vos amis en multijoueur local sur le même écran, ou lancez-vous dans des parties en ligne passionnantes.</li>
+                <li><i class="fa-solid fa-bolt"></i> <strong>Gameplay fluide :</strong> Une interface moderne, intelligente et sans fioritures pour vous concentrer uniquement sur votre stratégie.</li>
+                <li><i class="fa-solid fa-mobile-screen"></i> <strong>Une expérience immersive :</strong> Profitez d'une application légère, optimisée pour tous les appareils, avec des commandes tactiles réactives et précises.</li>
+            </ul>
+
+            <p style="margin-top: 25px;"><em>Téléchargez Les dames S.Nova dès maintenant et devenez le maître du damier !</em></p>
+        </div>
+
+        <!-- Section Confidentialité et Données -->
+        <div class="content-card">
+            <h2><i class="fa-solid fa-shield-halved"></i> Vie privée et données</h2>
+            <p>🛡️ Nous prenons votre confidentialité au sérieux. Les dames S.Nova est entièrement conforme au RGPD : vos données de jeu sont protégées et vos choix de consentement sont scrupuleusement respectés.</p>
+            
+            <h3 style="margin-top: 20px; font-size: 1.1em; color: var(--dark);">Suppression de compte et de données</h3>
+            <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong><a href="mailto:sayagyohannnova@gmail.com" style="color: var(--primary);">sayagyohannnova@gmail.com</a></strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
+        </div>
+
+        <!-- Liens footer -->
+        <div class="footer-links">
+            <a href="privacy-jeux.html"><i class="fa-solid fa-file-contract"></i> Politique de Confidentialité de Les dames S.Nova</a>
+        </div>
+        
     </div>
 
+    <!-- Script Swiper (Pour faire fonctionner le carrousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Initialisation du carrousel
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto", // Affiche le bon nombre d'images selon la taille de l'écran
+            spaceBetween: 20, // Espace entre les images
+            grabCursor: true, // Affiche une petite main pour faire glisser
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 </body>
 </html>
