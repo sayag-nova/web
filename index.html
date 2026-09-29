@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome pour les icônes -->
+    <!-- Font Awesome pour les icônes des réseaux sociaux et de la bannière -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -55,7 +55,6 @@
         .hero {
             background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
             text-align: center;
-            /* Plus de padding en haut pour que l'image touche le bord */
             padding: 0 0 40px 0; 
             border-bottom: 1px solid #e2e8f0;
         }
@@ -65,8 +64,8 @@
             width: 100%;
             height: auto;
             display: block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Ombre douce sous la banderole */
-            margin-bottom: 30px; /* Espace avant le titre */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
         }
 
         .hero h1 {
@@ -75,7 +74,7 @@
             color: var(--dark);
             margin-bottom: 10px;
             letter-spacing: -0.5px;
-            padding: 0 20px; /* Pour éviter que le texte touche les bords sur mobile */
+            padding: 0 20px;
         }
 
         .hero p {
@@ -197,10 +196,19 @@
             border-color: #cbd5e1;
         }
 
-        .card-icon {
-            font-size: 2em;
-            color: var(--primary);
+        /* --- Style des icônes d'applications --- */
+        .app-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px; /* Effet icône d'application iOS/Android */
+            object-fit: cover;
             margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .app-logo {
+            transform: scale(1.05); /* L'icône grossit légèrement au survol */
         }
 
         .card h3 { 
@@ -350,7 +358,7 @@
 
     <!-- Section Hero -->
     <header class="hero animate-fade-up">
-        <!-- Ta banderole prendra désormais 100% de la largeur -->
+        <!-- Ta banderole prend 100% de la largeur -->
         <img src="logo.jpg" alt="Sayag Nova Bannière" class="hero-banner" onerror="this.style.display='none'">
         
         <h1>Studio Sayag Nova</h1>
@@ -387,7 +395,8 @@
             
             <div class="card">
                 <div>
-                    <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <!-- Insertion du logo Rami -->
+                    <img src="ramiLogo.png" alt="Logo Rami S.Nova" class="app-logo">
                     <h3>Rami S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>L'expérience ultime du Rami classique revisitée sur smartphone avec un mode en ligne et hors-ligne entièrement personnalisable.</p>
@@ -397,7 +406,8 @@
 
             <div class="card">
                 <div>
-                    <div class="card-icon"><i class="fa-solid fa-clone"></i></div>
+                    <!-- Insertion du logo Solitaire -->
+                    <img src="solitaireLogo.png" alt="Logo Solitaire S.Nova" class="app-logo">
                     <h3>Solitaire S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec un gameplay fluide, intelligent et moderne.</p>
@@ -407,7 +417,8 @@
             
             <div class="card">
                 <div>
-                    <div class="card-icon"><i class="fa-solid fa-chess-board"></i></div>
+                    <!-- Insertion du logo Les Dames -->
+                    <img src="lesdamesLogo.png" alt="Logo Les Dames S.Nova" class="app-logo">
                     <h3>Les Dames S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>Le célèbre jeu de dames de retour sur votre écran. Jouez en ligne ou hors-ligne, en solo ou en multijoueur classique.</p>
@@ -417,7 +428,8 @@
 
             <div class="card">
                 <div>
-                    <div class="card-icon"><i class="fa-solid fa-chess-knight"></i></div>
+                    <!-- Insertion du logo Les Échecs -->
+                    <img src="lesechecsLogo.png" alt="Logo Les Échecs S.Nova" class="app-logo">
                     <h3>Les Échecs S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>L'expérience authentique des échecs. Une application simple et redoutablement efficace pour jouer en solo ou affronter le monde.</p>
@@ -427,7 +439,8 @@
 
             <div class="card">
                 <div>
-                    <div class="card-icon"><i class="fa-solid fa-table-cells"></i></div>
+                    <!-- Insertion du logo Sudoku -->
+                    <img src="sudokuLogo.png" alt="Logo Sudoku S.Nova" class="app-logo">
                     <h3>Sudoku S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>Stimulez votre cerveau avec le jeu de réflexion incontournable. Des grilles pour tous les niveaux et une interface claire.</p>
@@ -437,7 +450,8 @@
 
             <div class="card">
                 <div>
-                    <div class="card-icon"><i class="fa-solid fa-spell-check"></i></div>
+                    <!-- Insertion du logo Multimots -->
+                    <img src="multimotsLogo.png" alt="Logo Multimots S.Nova" class="app-logo">
                     <h3>Multimots S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>Mots croisés, casés, mêlés et mystères : 4 jeux incontournables réunis en une seule application avec plus de 600 niveaux !</p>
@@ -447,7 +461,8 @@
 
             <div class="card">
                 <div>
-                    <div class="card-icon" style="color: #7e22ce;"><i class="fa-solid fa-moon"></i></div>
+                    <!-- Insertion du logo Miroir du Destin -->
+                    <img src="destinLogo.jpg" alt="Logo Miroir du Destin" class="app-logo">
                     <h3>Miroir du Destin</h3>
                     <span class="badge badge-purple">Tarot / Premium</span>
                     <p>Votre guide spirituel personnel. Plongez au cœur des arts divinatoires à travers le Tarot de Marseille, la numérologie et l'oracle.</p>
@@ -457,7 +472,8 @@
 
             <div class="card">
                 <div>
-                    <div class="card-icon" style="color: #10b981;"><i class="fa-solid fa-child-reaching"></i></div>
+                    <!-- Insertion du logo Ma Tata -->
+                    <img src="matataLogo.png" alt="Logo Ma Tata" class="app-logo">
                     <h3>Ma Tata</h3>
                     <span class="badge badge-green">Éducatif / Achat unique</span>
                     <p>L'application compagnon bienveillante et totalement sécurisée pour transformer l'apprentissage des enfants en un vrai plaisir.</p>
