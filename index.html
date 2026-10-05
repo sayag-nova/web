@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="canonical" href="https://www.sayagnova.com/"> 
-    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sayag Nova - Studio de développement d'applications mobiles et de sites web sur-mesure.">
-    <title>Sayag Nova | Expert en Création de Sites Web, Jeux & Applications</title>
+    <title>Sayag Nova - Studio de Jeux & Applications</title>
     
     <!-- Polices Google Fonts pour un look moderne -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome pour les icônes des réseaux sociaux et de la bannière -->
+    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -56,17 +55,70 @@
         .hero {
             background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
             text-align: center;
-            padding: 0 0 40px 0; 
+            padding: 0 0 50px 0; 
             border-bottom: 1px solid #e2e8f0;
         }
 
-        /* Style pour la banderole bord à bord */
         .hero-banner {
             width: 100%;
             height: auto;
             display: block;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 30px;
+        }
+
+        /* --- Cadre Vidéo Studio Pro --- */
+        .video-container {
+            max-width: 960px;
+            margin: 0 auto 35px auto;
+            padding: 0 20px;
+        }
+
+        .video-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: #000;
+        }
+
+        .studio-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 500px;
+            filter: contrast(104%) brightness(96%);
+        }
+
+        /* Badge incrusté sur la vidéo */
+        .video-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--secondary);
         }
 
         .hero h1 {
@@ -86,7 +138,7 @@
             padding: 0 20px;
         }
 
-        /* --- Bannière "Services / Devis" Percutante --- */
+        /* --- Bannière "Services / Devis" --- */
         .promo-banner {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
@@ -197,11 +249,10 @@
             border-color: #cbd5e1;
         }
 
-        /* --- Style des icônes d'applications --- */
         .app-logo {
             width: 72px;
             height: 72px;
-            border-radius: 18px; /* Effet icône d'application iOS/Android */
+            border-radius: 18px;
             object-fit: cover;
             margin-bottom: 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -209,7 +260,7 @@
         }
 
         .card:hover .app-logo {
-            transform: scale(1.05); /* L'icône grossit légèrement au survol */
+            transform: scale(1.05);
         }
 
         .card h3 { 
@@ -343,6 +394,12 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            .video-badge {
+                bottom: 12px;
+                left: 12px;
+                font-size: 0.72em;
+                padding: 6px 12px;
+            }
             .promo-banner {
                 margin: 20px;
                 padding: 30px 20px;
@@ -359,9 +416,22 @@
 
     <!-- Section Hero -->
     <header class="hero animate-fade-up">
-        <!-- Ta banderole prend 100% de la largeur -->
+        <!-- Banderole en haut -->
         <img src="logo.jpg" alt="Sayag Nova Bannière" class="hero-banner" onerror="this.style.display='none'">
         
+        <!-- Vidéo Studio Pro : VideoProject.mp4 -->
+        <div class="video-container">
+            <div class="video-frame">
+                <video autoplay muted loop playsinline class="studio-video">
+                    <source src="VideoProject.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                <div class="video-badge">
+                    <span class="live-dot"></span> STUDIO SAYAG-NOVA
+                </div>
+            </div>
+        </div>
+
         <h1>Studio Sayag Nova</h1>
         <p>Créateur d'expériences numériques sur-mesure pour les particuliers et les professionnels.</p>
     </header>
@@ -396,9 +466,8 @@
             
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Rami -->
-                    <img src="ramiLogo.png" alt="Logo Rami S.Nova" class="app-logo">
-                    <h3>Rami S.Nova</h3>
+                    <img src="ramiLogo.png" alt="Logo Rami S.NOVA" class="app-logo">
+                    <h3>Rami S.NOVA</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>L'expérience ultime du Rami classique revisitée sur smartphone avec un mode en ligne et hors-ligne entièrement personnalisable.</p>
                 </div>
@@ -407,9 +476,8 @@
 
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Solitaire -->
-                    <img src="solitaireLogo.png" alt="Logo Solitaire S.Nova" class="app-logo">
-                    <h3>Solitaire S.Nova</h3>
+                    <img src="solitaireLogo.png" alt="Logo Solitaire S.NOVA" class="app-logo">
+                    <h3>Solitaire S.NOVA</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
                     <p>Redécouvrez le plaisir intemporel du Solitaire classique (Klondike) avec un gameplay fluide, intelligent et moderne.</p>
                 </div>
@@ -418,7 +486,6 @@
             
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Les Dames -->
                     <img src="lesdamesLogo.png" alt="Logo Les Dames S.Nova" class="app-logo">
                     <h3>Les Dames S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
@@ -429,7 +496,6 @@
 
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Les Échecs -->
                     <img src="lesechecsLogo.png" alt="Logo Les Échecs S.Nova" class="app-logo">
                     <h3>Les Échecs S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
@@ -440,7 +506,6 @@
 
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Sudoku -->
                     <img src="sudokuLogo.png" alt="Logo Sudoku S.Nova" class="app-logo">
                     <h3>Sudoku S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
@@ -451,7 +516,6 @@
 
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Multimots -->
                     <img src="multimotsLogo.png" alt="Logo Multimots S.Nova" class="app-logo">
                     <h3>Multimots S.Nova</h3>
                     <span class="badge badge-blue">Jeu Gratuit (Pubs)</span>
@@ -462,7 +526,6 @@
 
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Miroir du Destin -->
                     <img src="destinLogo.jpg" alt="Logo Miroir du Destin" class="app-logo">
                     <h3>Miroir du Destin</h3>
                     <span class="badge badge-purple">Tarot / Premium</span>
@@ -473,7 +536,6 @@
 
             <div class="card">
                 <div>
-                    <!-- Insertion du logo Ma Tata -->
                     <img src="matataLogo.png" alt="Logo Ma Tata" class="app-logo">
                     <h3>Ma Tata</h3>
                     <span class="badge badge-green">Éducatif / Achat unique</span>
