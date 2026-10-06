@@ -3,29 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité - ma tata</title>
+    <title>Politique de Confidentialité - Ma Tata</title>
+
+    <!-- Sécurité du navigateur -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
-        h1 { color: #0056b3; }
-        h2 { color: #333; margin-top: 20px; }
+        :root {
+            --primary: #15803d; /* Vert éducatif / protecteur */
+            --primary-hover: #166534;
+            --primary-light: #f0fdf4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.7; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        nav { 
+            background: var(--card-bg); 
+            padding: 15px 20px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a { 
+            color: var(--gray); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95em; 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+
+        /* --- Conteneur Document --- */
+        .container { 
+            max-width: 850px; 
+            margin: 40px auto 60px; 
+            padding: 40px; 
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        h1 { 
+            color: var(--dark); 
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .update-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+
+        h2 { 
+            color: var(--dark); 
+            margin-top: 35px; 
+            margin-bottom: 14px;
+            font-size: 1.3em;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p { 
+            color: var(--gray); 
+            font-size: 0.98em;
+            margin-bottom: 16px; 
+        }
+
+        strong { 
+            color: var(--dark); 
+        }
+
+        ul { 
+            padding-left: 20px; 
+            margin-bottom: 20px;
+        }
+
+        li { 
+            color: var(--gray);
+            font-size: 0.98em;
+            margin-bottom: 10px;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 30px 20px 50px; 
+            color: var(--gray); 
+            font-size: 0.9em; 
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 25px 20px;
+            }
+            h1 { font-size: 1.8em; }
+        }
     </style>
 </head>
 <body>
-    <h1>Politique de Confidentialité - ma tata</h1>
-    <p>Dernière mise à jour : 19 juin 2026</p>
-    <p>La présente politique de confidentialité décrit la manière dont la SASU <strong>Sayag Nova</strong> gère les données dans le cadre de l'utilisation de l'application éducative <strong>ma tata</strong>. Cette application est payante à l'achat unique, sans publicité et respectueuse de la vie privée.</p>
 
-    <h2>1. Collecte des données et services tiers</h2>
-    <p>L'application est conçue pour protéger la confidentialité de ses utilisateurs, en particulier dans un cadre éducatif. Nous ne vendons aucune donnée et ne suivons pas l'activité des utilisateurs. Les seuls services tiers utilisés sont strictement liés à la plateforme de distribution :</p>
-    <ul>
-        <li><strong>Google Play Services & Google Play Billing :</strong> Pour valider l'achat initial de l'application de manière sécurisée directement via l'infrastructure de Google.</li>
-        <li><strong>Firebase Crashlytics (optionnel) :</strong> Uniquement pour recevoir des rapports anonymes en cas de dysfonctionnement technique ou de plantage afin d'améliorer l'application.</li>
-    </ul>
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
+    </nav>
 
-    <h2>2. Absence de publicité et de ciblage</h2>
-    <p>L'application ne contient aucune publicité, aucun tracker publicitaire et ne collecte aucune donnée à des fins de profilage commercial.</p>
+    <div class="container">
+        <h1>Politique de Confidentialité - Ma Tata</h1>
+        <div class="update-badge">
+            <i class="fa-solid fa-shield-cat"></i> Dernière mise à jour : 19 juin 2026
+        </div>
 
-    <h2>3. Contact</h2>
-    <p>Pour toute question ou demande concernant la vie privée sur notre application éducative, vous pouvez contacter la SASU Sayag Nova par email.</p>
+        <p>La présente politique de confidentialité décrit la manière dont la SASU <strong>Sayag Nova</strong> gère les données dans le cadre de l'utilisation de l'application éducative <strong>Ma Tata</strong>. Cette application est payante à l'achat unique, sans aucune publicité et conçue pour offrir un environnement sain et totalement respectueux de la vie privée des enfants et de leur famille.</p>
+
+        <h2><i class="fa-solid fa-lock"></i> 1. Collecte des données et services tiers</h2>
+        <p>L'application est pensée pour protéger scrupuleusement la confidentialité de ses utilisateurs, en particulier dans un cadre d'éveil éducatif. Nous ne collectons, ne conservons ni ne vendons aucune donnée personnelle. Les seuls services tiers utilisés sont strictement indispensables à la distribution et à la maintenance technique de l'application :</p>
+        <ul>
+            <li><strong>Google Play Services & Google Play Billing :</strong> Pour valider l'achat initial sécurisé de l'application via les serveurs officiels de Google. Aucune information bancaire ne transite par nos serveurs.</li>
+            <li><strong>Firebase Crashlytics (optionnel) :</strong> Uniquement pour recevoir des rapports d'erreurs anonymes et purement techniques en cas d'anomalie ou de plantage, afin d'assurer la stabilité du jeu.</li>
+        </ul>
+
+        <h2><i class="fa-solid fa-ban"></i> 2. Absence totale de publicité et de traçage</h2>
+        <p>L'application ne contient <strong>aucune publicité commerciale</strong>, aucun SDK ou traceur marketing, et ne procède à aucun profilage d'audience. Les enfants peuvent utiliser l'application sans interruption ni sollicitation commerciale.</p>
+
+        <h2><i class="fa-solid fa-envelope"></i> 3. Contact</h2>
+        <p>Pour toute question ou demande concernant la vie privée au sein de notre application éducative, vous pouvez contacter directement la SASU Sayag Nova par email à : <a href="mailto:sayagyohannnova@gmail.com" class="contact-link">sayagyohannnova@gmail.com</a>.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
+
 </body>
 </html>
