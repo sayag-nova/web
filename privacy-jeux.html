@@ -4,36 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de Confidentialité - Sayag Nova</title>
+
+    <!-- Sécurité du navigateur -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
-        h1 { color: #0056b3; }
-        h2 { color: #333; margin-top: 20px; }
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.7; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        nav { 
+            background: var(--card-bg); 
+            padding: 15px 20px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a { 
+            color: var(--gray); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95em; 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+
+        /* --- Conteneur Document --- */
+        .container { 
+            max-width: 850px; 
+            margin: 40px auto 60px; 
+            padding: 40px; 
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        h1 { 
+            color: var(--dark); 
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .update-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #eff6ff;
+            color: var(--primary);
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+
+        h2 { 
+            color: var(--dark); 
+            margin-top: 35px; 
+            margin-bottom: 14px;
+            font-size: 1.3em;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p { 
+            color: var(--gray); 
+            font-size: 0.98em;
+            margin-bottom: 16px; 
+        }
+
+        strong { 
+            color: var(--dark); 
+        }
+
+        ul { 
+            padding-left: 20px; 
+            margin-bottom: 20px;
+        }
+
+        li { 
+            color: var(--gray);
+            font-size: 0.98em;
+            margin-bottom: 10px;
+        }
+
+        a.contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a.contact-link:hover {
+            text-decoration: underline;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 30px 20px 50px; 
+            color: var(--gray); 
+            font-size: 0.9em; 
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 25px 20px;
+            }
+            h1 { font-size: 1.8em; }
+        }
     </style>
 </head>
 <body>
-    <h1>Politique de Confidentialité</h1>
-    <p>Dernière mise à jour : 19 juin 2026</p>
-    <p>La présente politique de confidentialité décrit la manière dont <strong>Sayag Nova</strong> gère les données dans le cadre de l'utilisation de nos applications mobiles gratuites financées par la publicité (notamment Rami S.NOVA, Solitaire S.NOVA, Le Miroir du destin).</p>
 
-    <h2>1. Collecte des données et services tiers</h2>
-    <p>Nous ne collectons ni ne stockons directement d'informations personnelles identifiables (comme votre nom, adresse ou numéro de téléphone) sur nos serveurs. Cependant, nos applications intègrent des services tiers de confiance qui peuvent collecter des informations utilisées pour vous identifier de manière anonyme et technique afin d'assurer le bon fonctionnement des publicités et de l'application :</p>
-    <ul>
-        <li><strong>Google Play Services :</strong> Pour la gestion technique sur Android.</li>
-        <li><strong>Google AdMob :</strong> Pour diffuser des publicités adaptées. AdMob peut utiliser l'identifiant publicitaire de votre appareil pour personnaliser les annonces.</li>
-        <li><strong>Google Analytics for Firebase :</strong> Pour analyser l'utilisation globale de l'application de manière anonyme.</li>
-        <li><strong>Firebase Crashlytics :</strong> Pour recevoir des rapports techniques en cas de bug ou de plantage de l'application.</li>
-    </ul>
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
+    </nav>
 
-    <h2>2. Cookies et traceurs</h2>
-    <p>Les partenaires publicitaires tiers (AdMob) peuvent utiliser des technologies telles que les cookies ou les identifiants publicitaires mobiles pour collecter des informations de navigation anonymes dans le but de proposer des publicités pertinentes ou mesurer les performances.</p>
+    <div class="container">
+        <h1>Politique de Confidentialité</h1>
+        <div class="update-badge">
+            <i class="fa-regular fa-clock"></i> Dernière mise à jour : 19 juin 2026
+        </div>
 
-    <h2>3. Consentement (RGPD)</h2>
-    <p>Conformément au Règlement Général sur la Protection des Données (RGPD) en vigueur dans l'Union Européenne, un écran de consentement s'affiche à l'ouverture de l'application. Vous pouvez à tout moment accepter, refuser ou personnaliser le partage de vos identifiants techniques avec nos partenaires publicitaires.</p>
+        <p>La présente politique de confidentialité décrit la manière dont <strong>Sayag Nova</strong> gère les données dans le cadre de l'utilisation de nos jeux mobiles gratuits financés par la publicité : <strong>Rami S.NOVA</strong>, <strong>Solitaire S.NOVA</strong>, <strong>Les Dames S.Nova</strong>, <strong>Les Échecs S.Nova</strong>, <strong>Sudoku S.Nova</strong> et <strong>Multimots S.Nova</strong>.</p>
 
-    <h2>4. Droits des utilisateurs</h2>
-    <p>Étant donné que nous ne collectons aucune donnée nominative, nous n'avons aucun moyen d'associer des données directement à votre identité. Toutefois, vous pouvez réinitialiser l'identifiant publicitaire de votre appareil directement dans les paramètres de votre téléphone Android.</p>
+        <h2><i class="fa-solid fa-database"></i> 1. Collecte des données et services tiers</h2>
+        <p>Nous ne collectons ni ne stockons directement d'informations personnelles identifiables (comme votre nom, adresse ou numéro de téléphone) sur nos serveurs. Cependant, nos applications intègrent des services tiers de confiance qui peuvent collecter des informations utilisées pour vous identifier de manière anonyme et technique afin d'assurer le bon fonctionnement des publicités et de l'application :</p>
+        <ul>
+            <li><strong>Google Play Services :</strong> Pour la gestion technique sur Android.</li>
+            <li><strong>Google AdMob :</strong> Pour diffuser des publicités adaptées. AdMob peut utiliser l'identifiant publicitaire de votre appareil pour personnaliser les annonces.</li>
+            <li><strong>Google Analytics for Firebase :</strong> Pour analyser l'utilisation globale de l'application de manière anonyme.</li>
+            <li><strong>Firebase Crashlytics :</strong> Pour recevoir des rapports techniques en cas de bug ou de plantage de l'application.</li>
+        </ul>
 
-    <h2>5. Contact</h2>
-    <p>Pour toute question concernant cette politique, vous pouvez contacter la SASU Sayag Nova par email.</p>
+        <h2><i class="fa-solid fa-cookie-bite"></i> 2. Cookies et traceurs</h2>
+        <p>Les partenaires publicitaires tiers (AdMob) peuvent utiliser des technologies telles que les cookies ou les identifiants publicitaires mobiles pour collecter des informations de navigation anonymes dans le but de proposer des publicités pertinentes ou mesurer les performances.</p>
+
+        <h2><i class="fa-solid fa-shield-halved"></i> 3. Consentement (RGPD)</h2>
+        <p>Conformément au Règlement Général sur la Protection des Données (RGPD) en vigueur dans l'Union Européenne, un écran de consentement s'affiche à l'ouverture de l'application. Vous pouvez à tout moment accepter, refuser ou personnaliser le partage de vos identifiants techniques avec nos partenaires publicitaires.</p>
+
+        <h2><i class="fa-solid fa-user-shield"></i> 4. Droits des utilisateurs</h2>
+        <p>Étant donné que nous ne collectons aucune donnée nominative, nous n'avons aucun moyen d'associer des données directement à votre identité. Toutefois, vous pouvez réinitialiser l'identifiant publicitaire de votre appareil directement dans les paramètres de votre téléphone Android.</p>
+
+        <h2><i class="fa-solid fa-envelope"></i> 5. Contact</h2>
+        <p>Pour toute question concernant cette politique ou l'exercice de vos droits, vous pouvez contacter la SASU Sayag Nova par email à : <a href="mailto:sayagyohannnova@gmail.com" class="contact-link">sayagyohannnova@gmail.com</a>.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
+
 </body>
 </html>
