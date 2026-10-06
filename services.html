@@ -383,6 +383,8 @@
             <p>Décrivez-nous votre projet en quelques mots. Nous étudierons votre demande et vous répondrons rapidement avec une proposition adaptée.</p>
             
             <form action="https://formspree.io/f/mnpqvlkl" method="POST">
+                <!-- Champ piège anti-spam invisible pour les humains -->
+                <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
                 <div class="form-group">
                     <label for="nom">Nom / Entreprise *</label>
                     <input type="text" id="nom" name="Nom" required placeholder="Votre nom ou le nom de votre société">
