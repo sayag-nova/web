@@ -29,8 +29,9 @@
             --secondary-hover: #059669;
             --dark: #0f172a;
             --gray: #64748b;
-            --bg: #f8fafc;
+            --bg: #f0f4f9; 
             --card-bg: #ffffff;
+            --border-color: #e2e8f0;
         }
 
         * {
@@ -44,6 +45,12 @@
             line-height: 1.6; 
             color: var(--dark); 
             background-color: var(--bg); 
+            background-image: 
+                radial-gradient(at 15% 10%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+                radial-gradient(at 85% 20%, rgba(56, 189, 248, 0.07) 0px, transparent 50%),
+                radial-gradient(at 50% 90%, rgba(99, 102, 241, 0.05) 0px, transparent 60%);
+            background-attachment: fixed;
+            background-size: 100% 100%;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -59,18 +66,31 @@
 
         /* --- Section Hero (Accueil) --- */
         .hero {
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(241, 245, 249, 0.6) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             text-align: center;
-            padding: 0 0 50px 0; 
-            border-bottom: 1px solid #e2e8f0;
+            padding: 25px 0 50px 0; 
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-banner-container {
+            max-width: 760px;
+            margin: 0 auto 30px auto;
+            padding: 0 20px;
         }
 
         .hero-banner {
             width: 100%;
             height: auto;
             display: block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease;
+        }
+
+        .hero-banner:hover {
+            transform: scale(1.01);
         }
 
         /* --- Cadre Vidéo Studio Pro --- */
@@ -85,7 +105,7 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             background: #000;
         }
 
@@ -241,7 +261,7 @@
             padding: 30px; 
             border-radius: 20px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
             display: flex; 
             flex-direction: column; 
             justify-content: space-between; 
@@ -359,9 +379,9 @@
         /* --- Mentions Légales --- */
         .legal-details {
             background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
             margin: 60px auto 0;
             max-width: 800px;
             overflow: hidden;
@@ -381,7 +401,7 @@
 
         .legal-content {
             padding: 20px 30px 30px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid var(--border-color);
             font-size: 0.9em;
             color: var(--gray);
         }
@@ -400,6 +420,10 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            .hero-banner-container {
+                padding: 0 12px;
+                margin-bottom: 20px;
+            }
             .video-badge {
                 bottom: 12px;
                 left: 12px;
@@ -422,8 +446,10 @@
 
     <!-- Section Hero -->
     <header class="hero animate-fade-up">
-        <!-- Banderole en haut -->
-        <img src="logo.jpg" alt="Sayag Nova Bannière" class="hero-banner" onerror="this.style.display='none'">
+        <!-- Banderole en haut stylisée -->
+        <div class="hero-banner-container">
+            <img src="logo.jpg" alt="Sayag Nova Bannière" class="hero-banner" onerror="this.style.display='none'">
+        </div>
         
         <!-- Vidéo Studio Pro : VideoProject.mp4 -->
         <div class="video-container">
@@ -543,53 +569,3 @@
             <div class="card">
                 <div>
                     <img src="matataLogo.png" alt="Logo Ma Tata" class="app-logo">
-                    <h3>Ma Tata</h3>
-                    <span class="badge badge-green">Éducatif / Achat unique</span>
-                    <p>L'application compagnon bienveillante et totalement sécurisée pour transformer l'apprentissage des enfants en un vrai plaisir.</p>
-                </div>
-                <a class="btn-view btn-view-green" href="matata.html">Découvrir l'application</a>
-            </div>
-        </div>
-
-        <!-- Section Réseaux Sociaux -->
-        <div class="social-section animate-fade-up" style="animation-delay: 0.5s;">
-            <h3>Rejoignez la communauté</h3>
-            <div class="social-icons">
-                <a href="https://mobile.facebook.com/?al_applink_data=%7B%22profile_id_messenger%22:%22100001454478283%22,%22messenger_major_version%22:%22579%22,%22qpl_join_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22app_switch_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22deeplink_source%22:%22trep%22,%22is_mailbox_empty%22:false%7D" target="_blank" class="facebook" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/sayagnova?stkn=MTc4bW8xdWFhYm1yMw%3D%3D&utm_source=qr" target="_blank" class="instagram" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="tiktok" aria-label="TikTok">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://snapchat.com/t/VWJeN2JE" target="_blank" class="snapchat" aria-label="Snapchat">
-                    <i class="fab fa-snapchat"></i>
-                </a>
-                <a href="https://youtube.com/@sayag-nova?si=AT_7BWGrIzmbYv6p" target="_blank" class="youtube" aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Mentions Légales dans un accordéon -->
-        <details class="legal-details animate-fade-up" style="animation-delay: 0.6s;">
-            <summary><i class="fa-solid fa-scale-balanced"></i> Afficher les mentions légales</summary>
-            <div class="legal-content">
-                <p><strong>Éditeur du site :</strong> Ce site internet est édité par la SASU Sayag-nova, au capital social de 100 €, immatriculée au Registre du Commerce et des Sociétés (RCS) de GAP sous le numéro SIRET 10627440000014.</p>
-                <p><strong>Siège social :</strong> 78 av des martyrs, 05400 Veynes, France.</p>
-                <p><strong>Directeur de la publication :</strong> Yohann Sayag.</p>
-                <p><strong>Numéro de TVA :</strong> FR23106274400.</p>
-                <p><strong>Contact :</strong> Pour toute demande de support ou d'information, contactez-nous par email : <a href="mailto:sayagyohannnova@gmail.com">sayagyohannnova@gmail.com</a>.</p>
-                <p><strong>Hébergement :</strong> Ce site vitrine est hébergé de manière statique par la plateforme GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, États-Unis.</p>
-            </div>
-        </details>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
-    </footer>
-
-</body>
-</html>
