@@ -50,22 +50,38 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- En-tête --- */
+        /* --- En-tête Banderole Pro --- */
         header { 
             background: var(--card-bg); 
             text-align: center; 
-            padding: 25px 20px; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            padding: 20px; 
+            box-shadow: 0 1px 10px rgba(0,0,0,0.04); 
             border-bottom: 1px solid var(--border-color); 
         }
         
         .logo-site { 
             width: 100%; 
-            max-width: 200px; 
+            max-width: 720px; /* Largeur idéale pour une banderole sur PC */
             height: auto; 
             display: block; 
             margin: 0 auto; 
-            border-radius: 12px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .logo-site:hover {
+            transform: scale(1.01);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 12px;
+            }
+            .logo-site {
+                max-width: 100%; /* S'adapte à toute la largeur sur smartphone */
+                border-radius: 10px;
+            }
         }
         
         .container { 
