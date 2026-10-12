@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation & Vision - Studio Sayag Nova</title>
+
+    <!-- Sécurité du navigateur -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <!-- Polices Google Fonts pour un look moderne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            --secondary: #10b981; 
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f0f4f9; 
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.7; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            background-image: 
+                radial-gradient(at 15% 10%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+                radial-gradient(at 85% 20%, rgba(56, 189, 248, 0.07) 0px, transparent 50%),
+                radial-gradient(at 50% 90%, rgba(99, 102, 241, 0.05) 0px, transparent 60%);
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Banderole Bleu Galactique Pleine Largeur --- */
+        .galactic-topbar {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, #090e17 0%, #1e1b4b 35%, #1d4ed8 75%, #0284c7 100%);
+            box-shadow: 0 4px 25px rgba(29, 78, 216, 0.35);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.4);
+        }
+
+        .galactic-content {
+            width: 100%;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .menu-trigger-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-menu-galaxy {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-menu-galaxy:hover {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Menu Déroulant */
+        .galactic-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 16px;
+            padding: 8px 0;
+            min-width: 275px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            animation: menuFadeIn 0.25s ease-out forwards;
+        }
+
+        .galactic-dropdown.active { display: block; }
+
+        @keyframes menuFadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .galactic-dropdown .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .galactic-dropdown .menu-item i {
+            color: #38bdf8;
+            font-size: 1.05em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .galactic-dropdown .menu-item:hover {
+            background: rgba(56, 189, 248, 0.15);
+            color: #ffffff;
+            padding-left: 24px;
+        }
+
+        .submenu-container {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .submenu-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-family: inherit;
+            font-size: 0.95em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submenu-toggle span { display: flex; align-items: center; gap: 12px; }
+        .submenu-toggle span i { color: #38bdf8; font-size: 1.05em; width: 20px; text-align: center; }
+        .submenu-arrow { font-size: 0.8em; transition: transform 0.3s ease; color: #94a3b8; }
+        .submenu-arrow.rotated { transform: rotate(180deg); color: #38bdf8; }
+        .submenu-toggle:hover { background: rgba(56, 189, 248, 0.12); color: #ffffff; }
+
+        .sublist { display: none; background: rgba(0, 0, 0, 0.35); padding: 4px 0 6px 10px; }
+        .sublist.open { display: block; }
+
+        .sub-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px !important;
+            font-size: 0.88em !important;
+            color: #cbd5e1 !important;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .sub-item i { font-size: 0.95em !important; color: #38bdf8 !important; width: 18px !important; text-align: center; }
+        .sub-item:hover { color: #ffffff !important; background: rgba(56, 189, 248, 0.18) !important; padding-left: 22px !important; }
+
+        .galactic-slogan {
+            color: #ffffff;
+            font-size: 0.95em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+        }
+
+        .galactic-slogan span.highlight { color: #38bdf8; }
+
+        /* --- En-tête Présentation --- */
+        .intro-hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .intro-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .intro-hero h1 {
+            font-size: 2.5em;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--dark);
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .intro-hero h1 span.gradient-text {
+            background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .intro-hero p {
+            font-size: 1.15em;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* --- Cadre Vidéo Studio Pro --- */
+        .video-container {
+            max-width: 960px;
+            margin: 20px auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .video-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: #000;
+        }
+
+        .studio-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 480px;
+            filter: contrast(104%) brightness(96%);
+        }
+
+        .video-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--secondary);
+        }
+
+        /* --- Sections de contenu --- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .card-story {
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            position: relative;
+        }
+
+        .card-story h2 {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-story h2 i {
+            color: var(--primary);
+        }
+
+        .card-story p {
+            color: #475569;
+            font-size: 1.05em;
+            margin-bottom: 18px;
+            line-height: 1.85;
+        }
+
+        .card-story p strong {
+            color: var(--dark);
+        }
+
+        /* Encart citation personnelle */
+        .quote-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 20px 25px;
+            border-radius: 0 16px 16px 0;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--dark);
+            font-size: 1.05em;
+        }
+
+        /* Métier de Développeur Web & Mobile */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .job-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 28px 24px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .job-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        .job-icon {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .job-box h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .job-box p {
+            font-size: 0.95em;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Bandeau Chiffres & Confiance */
+        .trust-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 45px 30px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+        }
+
+        .trust-banner h2 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .trust-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: #94a3b8;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        /* Appel à l'action final */
+        .cta-section {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .cta-section h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+        }
+
+        .btn-cta-main {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 16px 38px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta-main:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.45);
+            color: white;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 30px 20px 50px; 
+            color: var(--gray); 
+            font-size: 0.9em; 
+        }
+
+        @media (max-width: 768px) {
+            .intro-hero h1 { font-size: 2em; }
+            .card-story { padding: 30px 20px; }
+            .galactic-slogan { font-size: 0.72em; text-align: right; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banderole Bleu Galactique -->
+    <div class="galactic-topbar">
+        <div class="galactic-content">
+            <div class="menu-trigger-wrapper">
+                <button type="button" class="btn-menu-galaxy" id="menuBtn" aria-label="Ouvrir le menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span>Menu</span>
+                </button>
+
+                <!-- Menu Déroulant Complet -->
+                <div class="galactic-dropdown" id="menuDropdown">
+                    <a href="index.html" class="menu-item">
+                        <i class="fa-solid fa-house"></i> Accueil
+                    </a>
+                    
+                    <a href="presentation.html" class="menu-item">
+                        <i class="fa-solid fa-building-user"></i> Présentation
+                    </a>
+                    
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="appsSubmenu">
+                            <span><i class="fa-solid fa-gamepad"></i> Les Applications</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="appsSubmenu">
+                            <a href="rami.html" class="sub-item"><i class="fa-solid fa-diamond"></i> Rami S.NOVA</a>
+                            <a href="solitaire.html" class="sub-item"><i class="fa-solid fa-heart"></i> Solitaire S.NOVA</a>
+                            <a href="dames.html" class="sub-item"><i class="fa-solid fa-circle-dot"></i> Les Dames S.Nova</a>
+                            <a href="echecs.html" class="sub-item"><i class="fa-solid fa-chess-knight"></i> Les Échecs S.Nova</a>
+                            <a href="sudoku.html" class="sub-item"><i class="fa-solid fa-table-cells"></i> Sudoku S.Nova</a>
+                            <a href="multimots.html" class="sub-item"><i class="fa-solid fa-font"></i> Multimots S.Nova</a>
+                            <a href="miroir.html" class="sub-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Miroir du Destin</a>
+                            <a href="matata.html" class="sub-item"><i class="fa-solid fa-graduation-cap"></i> Ma Tata</a>
+                        </div>
+                    </div>
+
+                    <a href="services.html" class="menu-item">
+                        <i class="fa-solid fa-paper-plane"></i> Devis
+                    </a>
+
+                    <a href="Brochure Commerciale Complète Sayag-Nova.pdf" download class="menu-item">
+                        <i class="fa-solid fa-file-pdf"></i> Brochure tarifaire
+                    </a>
+
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="socialSubmenu">
+                            <span><i class="fa-solid fa-share-nodes"></i> Réseaux Sociaux</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="socialSubmenu">
+                            <a href="https://mobile.facebook.com/?al_applink_data=%7B%22profile_id_messenger%22:%22100001454478283%22,%22messenger_major_version%22:%22579%22,%22qpl_join_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22app_switch_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22deeplink_source%22:%22trep%22,%22is_mailbox_empty%22:false%7D" target="_blank" class="sub-item">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/sayagnova?stkn=MTc4bW8xdWFhYm1yMw%3D%3D&utm_source=qr" target="_blank" class="sub-item">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="https://snapchat.com/t/VWJeN2JE" target="_blank" class="sub-item">
+                                <i class="fab fa-snapchat"></i> Snapchat
+                            </a>
+                            <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="sub-item">
+                                <i class="fab fa-tiktok"></i> TikTok
+                            </a>
+                            <a href="https://youtube.com/@sayag-nova?si=AT_7BWGrIzmbYv6p" target="_blank" class="sub-item">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="contactSubmenu">
+                            <span><i class="fa-solid fa-headset"></i> Contact</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="contactSubmenu">
+                            <a href="tel:0619215058" class="sub-item">
+                                <i class="fa-solid fa-phone"></i> 06 19 21 50 58
+                            </a>
+                            <a href="mailto:s.yohann@sayagnova.com" class="sub-item">
+                                <i class="fa-solid fa-envelope"></i> s.yohann@sayagnova.com
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Slogan Tapant -->
+            <div class="galactic-slogan">
+                <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i>
+                <span>Façonner <span class="highlight">le Futur</span> Numérique</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- En-tête de la page -->
+    <header class="intro-hero">
+        <div class="intro-badge">
+            <i class="fa-solid fa-terminal"></i> Artisan du Web & Créateur Mobile
+        </div>
+        <h1>Derrière le Studio Sayag Nova : <br><span class="gradient-text">La Passion du Code & de l'Excellence</span></h1>
+        <p>Plus qu'une simple entreprise de développement, Sayag Nova incarne la rencontre entre l'exigence technique, le sens du détail graphique et l'écoute humaine de chaque projet.</p>
+    </header>
+
+    <!-- Vidéo Studio Pro -->
+    <div class="video-container">
+        <div class="video-frame">
+            <video autoplay muted loop playsinline class="studio-video">
+                <source src="VideoProject.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+            <div class="video-badge">
+                <span class="live-dot"></span> STUDIO SAYAG-NOVA
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenu Principal -->
+    <div class="container">
+
+        <!-- 1. Présentation de Yohann Sayag -->
+        <article class="card-story">
+            <h2><i class="fa-solid fa-user-tie"></i> Qui suis-je ?</h2>
+            <p>Je m'appelle <strong>Yohann Sayag</strong>, fondateur et développeur principal de la société <strong>Sayag Nova</strong>. Développeur web et mobile autodidacte et passionné de la première heure, j'ai bâti mon parcours sur une curiosité sans limites et un amour inconditionnel pour les technologies numériques.</p>
+            
+            <p>Pour moi, programmer ne consiste pas simplement à aligner des lignes de code informatique : c'est un véritable <strong>métier d'artisanat moderne</strong>. Chaque pixel, chaque ligne d'algorithme et chaque seconde de temps de chargement font l'objet d'une attention méticuleuse.</p>
+
+            <div class="quote-box">
+                « Un projet réussi n'est pas seulement un site ou une application qui fonctionne : c'est un produit qui transmet une émotion, qui rassure immédiatement son utilisateur et qui apporte une vraie valeur à celui qui le porte. »
+            </div>
+
+            <p>Ayant moi-même conçu, édité et déployé avec succès un catalogue complet de jeux vidéo et d'applications mobiles utilisées au quotidien par des milliers de personnes sur le Google Play Store (Rami, Solitaire, Dames, Échecs, Sudoku, Multimots, Ma Tata, Miroir du Destin), je connais parfaitement les contraintes réelles du marché : optimisation, conformité RGPD, vitesse d'affichage, expérience utilisateur et sécurité.</p>
+        </article>
+
+        <!-- 2. Qu'est-ce que le métier de développeur web chez Sayag Nova ? -->
+        <article class="card-story">
+            <h2><i class="fa-solid fa-code"></i> Le Métier de Développeur : Une Approche Sur-Mesure</h2>
+            <p>Dans un monde envahi d'outils automatiques et de modèles préfabriqués sans identité, <strong>je choisis la clarté, l'authenticité et le sur-mesure</strong>. Être développeur web et mobile indépendant aujourd'hui implique d'avoir une vision globale de l'écosystème :</p>
+
+            <div class="job-grid">
+                <div class="job-box">
+                    <i class="fa-solid fa-layer-group job-icon"></i>
+                    <h3>Architecture & Robustesse</h3>
+                    <p>Concevoir des sites et applications stables, propres et légers qui ne ralentissent jamais, même lors de fortes affluences.</p>
+                </div>
+
+                <div class="job-box">
+                    <i class="fa-solid fa-wand-magic-sparkles job-icon"></i>
+                    <h3>Design & Expérience (UX/UI)</h3>
+                    <p>Créer des interfaces modernes, intuitives et captivantes qui mettent vos visiteurs immédiatement en confiance.</p>
+                </div>
+
+                <div class="job-box">
+                    <i class="fa-solid fa-shield-halved job-icon"></i>
+                    <h3>Sécurité & Conformité</h3>
+                    <p>Protection contre les failles, certificats SSL/HTTPS stricts, respect du RGPD et protection contre les attaques malveillantes.</p>
+                </div>
+
+                <div class="job-box">
+                    <i class="fa-solid fa-gauge-high job-icon"></i>
+                    <h3>Performance & Référencement (SEO)</h3>
+                    <p>Un code propre et structuré pour plaire aux moteurs de recherche (Google) et maximiser votre visibilité naturelle.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. Pourquoi faire confiance à Sayag Nova ? -->
+        <article class="card-story">
+            <h2><i class="fa-solid fa-handshake-angle"></i> Pourquoi Confier Votre Projet à Sayag Nova ?</h2>
+            <p>Collaborer avec le studio <strong>Sayag Nova</strong>, c'est l'assurance d'avoir <strong>un interlocuteur unique, réactif et directement impliqué</strong> dans la réussite de votre projet.</p>
+            
+            <p>Pas d'intermédiaires superflus, pas de jargon technique incompréhensible : je prends le temps de comprendre vos besoins, vos ambitions et vos contraintes budgétaires. Qu'il s'agisse d'un artisan local souhaitant développer son activité, d'une PME cherchant à moderniser son image ou d'un créateur désireux de lancer sa propre application mobile, je m'engage avec la même rigueur et le même dévouement.</p>
+
+            <p><strong>Nos engagements clés :</strong></p>
+            <ul style="padding-left: 20px; color: #475569; margin-bottom: 20px;">
+                <li style="margin-bottom: 10px;"><strong>Écoute et bienveillance :</strong> Une communication transparente tout au long du développement.</li>
+                <li style="margin-bottom: 10px;"><strong>Tarifs justes et clairs :</strong> Aucune mauvaise surprise, devis transparents et détaillés.</li>
+                <li style="margin-bottom: 10px;"><strong>Pérénnité et suivi :</strong> Je reste à vos côtés après la livraison pour faire évoluer votre projet.</li>
+            </ul>
+        </article>
+
+        <!-- Bandeau de réassurance -->
+        <div class="trust-banner">
+            <h2>La Garantie d'un Travail Professionnel</h2>
+            <div class="trust-stats">
+                <div class="stat-item">
+                    <h3>8+</h3>
+                    <p>Applications éditées & actives</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Code sur-mesure & maîtrisé</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1</h3>
+                    <p>Interlocuteur dédié & à votre écoute</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0 €</h3>
+                    <p>Devis préalable gratuit</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appel à l'action final -->
+        <div class="cta-section">
+            <h3>Envie de donner vie à votre vision ?</h3>
+            <p>Discutons ensemble de vos idées, que ce soit pour la création d'un site vitrine, d'une boutique e-commerce ou d'une application mobile personnalisée.</p>
+            <a href="services.html" class="btn-cta-main">
+                <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Demander mon devis gratuit
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script JavaScript du Menu et des sous-menus -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const menuDropdown = document.getElementById('menuDropdown');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuDropdown.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.submenu-toggle').forEach(toggleBtn => {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const targetId = toggleBtn.getAttribute('data-target');
+                const sublist = document.getElementById(targetId);
+                const arrow = toggleBtn.querySelector('.submenu-arrow');
+
+                if (sublist) {
+                    sublist.classList.toggle('open');
+                    if (arrow) arrow.classList.toggle('rotated');
+                }
+            });
+        });
+
+        menuDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', () => {
+            menuDropdown.classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>
