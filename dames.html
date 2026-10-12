@@ -11,10 +11,14 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
+    <!-- SEO & Métadonnées -->
+    <meta name="description" content="Découvrez Les dames S.Nova : le jeu de dames classique revisité sur smartphone avec mode solo contre l'IA, multijoueur local et parties en ligne.">
+    <link rel="canonical" href="https://www.sayagnova.com/dames.html">
+
     <!-- Polices Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,50 +30,262 @@
         :root {
             --primary: #2563eb; 
             --primary-hover: #1d4ed8;
+            --secondary: #10b981; 
             --dark: #0f172a;
             --gray: #64748b;
-            --bg: #f8fafc;
+            --bg: #f0f4f9;
             --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body { 
             font-family: 'Poppins', sans-serif; 
             line-height: 1.6; 
-            margin: 0; 
-            padding: 0; 
             color: var(--dark); 
             background-color: var(--bg); 
+            background-image: 
+                radial-gradient(at 15% 10%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+                radial-gradient(at 85% 20%, rgba(56, 189, 248, 0.07) 0px, transparent 50%),
+                radial-gradient(at 50% 90%, rgba(99, 102, 241, 0.05) 0px, transparent 60%);
+            background-attachment: fixed;
+            background-size: 100% 100%;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Navigation --- */
-        nav { 
-            background: var(--card-bg); 
-            padding: 15px 20px; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+        /* --- Banderole Bleu Galactique Pleine Largeur --- */
+        .galactic-topbar {
+            width: 100%;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            background: linear-gradient(90deg, #090e17 0%, #1e1b4b 35%, #1d4ed8 75%, #0284c7 100%);
+            box-shadow: 0 4px 25px rgba(29, 78, 216, 0.35);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.4);
         }
-        nav a { 
-            color: var(--gray); 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 0.95em; 
-            transition: color 0.2s;
+
+        .galactic-content {
+            width: 100%;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .menu-trigger-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-menu-galaxy {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-menu-galaxy:hover {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Menu Déroulant */
+        .galactic-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 16px;
+            padding: 8px 0;
+            min-width: 275px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            animation: menuFadeIn 0.25s ease-out forwards;
+        }
+
+        .galactic-dropdown.active {
+            display: block;
+        }
+
+        @keyframes menuFadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .galactic-dropdown .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .galactic-dropdown .menu-item i {
+            color: #38bdf8;
+            font-size: 1.05em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .galactic-dropdown .menu-item:hover {
+            background: rgba(56, 189, 248, 0.15);
+            color: #ffffff;
+            padding-left: 24px;
+        }
+
+        /* Sous-menus (Applications, Réseaux, Contact) */
+        .submenu-container {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .submenu-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-family: inherit;
+            font-size: 0.95em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submenu-toggle span {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .submenu-toggle span i {
+            color: #38bdf8;
+            font-size: 1.05em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .submenu-arrow {
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+            color: #94a3b8;
+        }
+
+        .submenu-arrow.rotated {
+            transform: rotate(180deg);
+            color: #38bdf8;
+        }
+
+        .submenu-toggle:hover {
+            background: rgba(56, 189, 248, 0.12);
+            color: #ffffff;
+        }
+
+        .sublist {
+            display: none;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 4px 0 6px 10px;
+        }
+
+        .sublist.open {
+            display: block;
+        }
+
+        .sub-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px !important;
+            font-size: 0.88em !important;
+            color: #cbd5e1 !important;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .sub-item i {
+            font-size: 0.95em !important;
+            color: #38bdf8 !important;
+            width: 18px !important;
+            text-align: center;
+        }
+
+        .sub-item:hover {
+            color: #ffffff !important;
+            background: rgba(56, 189, 248, 0.18) !important;
+            padding-left: 22px !important;
+        }
+
+        /* Slogan */
+        .galactic-slogan {
+            color: #ffffff;
+            font-size: 0.95em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
         }
-        nav a:hover { color: var(--primary); }
 
+        .galactic-slogan span.highlight {
+            color: #38bdf8;
+        }
+
+        /* --- Conteneur et Bouton retour --- */
         .container { 
             max-width: 900px; 
-            margin: 40px auto; 
+            margin: 30px auto 60px; 
             padding: 0 20px; 
             display: flex; 
             flex-direction: column; 
             gap: 40px; 
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: color 0.2s;
+            align-self: flex-start;
+        }
+        .btn-back:hover {
+            color: var(--primary);
         }
 
         /* --- En-tête façon App Store --- */
@@ -78,10 +294,10 @@
             align-items: center;
             gap: 30px;
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
+            padding: 35px 30px;
+            border-radius: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
         }
 
         .app-icon {
@@ -97,6 +313,7 @@
             font-size: 2.2em; 
             color: var(--dark); 
             line-height: 1.2;
+            font-weight: 700;
         }
 
         .badge { 
@@ -118,27 +335,32 @@
 
         .btn-download { 
             display: inline-flex; 
-            align-items: center;
-            gap: 10px;
+            align-items: center; 
+            gap: 10px; 
             background: var(--primary); 
             color: white; 
             padding: 12px 28px; 
             text-decoration: none; 
             border-radius: 50px; 
             font-weight: 600; 
-            font-size: 1.05em;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            font-size: 1.05em; 
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); 
             transition: all 0.3s ease; 
         }
         .btn-download:hover { 
             background: var(--primary-hover); 
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); 
         }
 
         /* --- Carrousel d'images (Swiper) --- */
         .gallery-section { width: 100%; }
-        .gallery-section h2 { font-size: 1.6em; margin-bottom: 20px; color: var(--dark); }
+        .gallery-section h2 { 
+            font-size: 1.6em; 
+            margin-bottom: 20px; 
+            color: var(--dark); 
+            font-weight: 700;
+        }
 
         .swiper { width: 100%; padding-bottom: 40px; }
         .swiper-slide { width: auto; display: flex; justify-content: center; }
@@ -147,7 +369,7 @@
             width: auto;
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
         }
 
         .swiper-button-next, .swiper-button-prev { color: var(--primary); }
@@ -156,10 +378,10 @@
         /* --- Sections Texte --- */
         .content-card {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
+            padding: 35px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
         }
 
         .content-card h2 { 
@@ -169,14 +391,16 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 700;
         }
 
         .content-card > p {
             color: var(--gray);
             margin-bottom: 15px;
+            font-size: 1.05em;
         }
 
-        /* --- NOUVEAU : Grille / Tableau des Fonctionnalités --- */
+        /* --- Grille des Fonctionnalités --- */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -185,9 +409,9 @@
         }
 
         .feature-box {
-            background: var(--bg); /* Fond légèrement gris pour ressortir sur la carte blanche */
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
             padding: 25px 20px;
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -207,12 +431,13 @@
 
         .feature-box h4 {
             color: var(--dark);
-            font-size: 1.1em;
+            font-size: 1.15em;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .feature-box p {
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: var(--gray);
             margin: 0;
             line-height: 1.5;
@@ -220,43 +445,164 @@
 
         .cta-final {
             text-align: center;
-            font-size: 1.1em;
+            font-size: 1.05em;
             font-weight: 600;
             color: var(--primary);
-            margin-top: 10px;
-            padding: 15px;
+            margin-top: 15px;
+            padding: 16px;
             background: #eff6ff;
-            border-radius: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(37, 99, 235, 0.15);
         }
 
         .footer-links { 
             text-align: center;
-            padding-top: 20px; 
-            margin-top: 20px; 
+            padding: 10px 0 20px; 
         }
         .footer-links a { 
             color: var(--gray); 
-            font-size: 0.9em; 
+            font-size: 0.95em; 
             text-decoration: none; 
             font-weight: 500;
+            transition: color 0.2s;
         }
         .footer-links a:hover { color: var(--primary); text-decoration: underline; }
 
+        footer { 
+            text-align: center; 
+            padding: 30px 20px 50px; 
+            color: var(--gray); 
+            font-size: 0.9em; 
+        }
+
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .app-hero { flex-direction: column; text-align: center; }
+            .galactic-content {
+                padding: 10px 14px;
+                gap: 8px;
+            }
+            .btn-menu-galaxy {
+                padding: 6px 12px;
+                font-size: 0.82em;
+                flex-shrink: 0;
+            }
+            .galactic-slogan {
+                font-size: 0.70em;
+                letter-spacing: 0.5px;
+                text-align: right;
+                line-height: 1.2;
+            }
+            .app-hero { 
+                flex-direction: column; 
+                text-align: center; 
+                padding: 25px 20px;
+            }
             .swiper-slide img { height: 350px; }
-            .features-grid { grid-template-columns: 1fr; } /* Les blocs s'empilent sur mobile */
+            .features-grid { grid-template-columns: 1fr; }
+            .content-card { padding: 25px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Retour au studio</a>
-    </nav>
+    <!-- Banderole Bleu Galactique / Pleine Largeur -->
+    <div class="galactic-topbar">
+        <div class="galactic-content">
+            <!-- Menu en haut à gauche -->
+            <div class="menu-trigger-wrapper">
+                <button type="button" class="btn-menu-galaxy" id="menuBtn" aria-label="Ouvrir le menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span>Menu</span>
+                </button>
+
+                <!-- Menu Déroulant Complet -->
+                <div class="galactic-dropdown" id="menuDropdown">
+                    <a href="index.html" class="menu-item">
+                        <i class="fa-solid fa-house"></i> Accueil
+                    </a>
+                    
+                    <a href="presentation.html" class="menu-item">
+                        <i class="fa-solid fa-building-user"></i> Présentation
+                    </a>
+                    
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="appsSubmenu">
+                            <span><i class="fa-solid fa-gamepad"></i> Les Applications</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="appsSubmenu">
+                            <a href="rami.html" class="sub-item"><i class="fa-solid fa-diamond"></i> Rami S.NOVA</a>
+                            <a href="solitaire.html" class="sub-item"><i class="fa-solid fa-heart"></i> Solitaire S.NOVA</a>
+                            <a href="dames.html" class="sub-item"><i class="fa-solid fa-circle-dot"></i> Les Dames S.Nova</a>
+                            <a href="echecs.html" class="sub-item"><i class="fa-solid fa-chess-knight"></i> Les Échecs S.Nova</a>
+                            <a href="sudoku.html" class="sub-item"><i class="fa-solid fa-table-cells"></i> Sudoku S.Nova</a>
+                            <a href="multimots.html" class="sub-item"><i class="fa-solid fa-font"></i> Multimots S.Nova</a>
+                            <a href="miroir.html" class="sub-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Miroir du Destin</a>
+                            <a href="matata.html" class="sub-item"><i class="fa-solid fa-graduation-cap"></i> Ma Tata</a>
+                        </div>
+                    </div>
+
+                    <a href="services.html" class="menu-item">
+                        <i class="fa-solid fa-paper-plane"></i> Devis
+                    </a>
+
+                    <a href="Brochure Commerciale Complète Sayag-Nova.pdf" download class="menu-item">
+                        <i class="fa-solid fa-file-pdf"></i> Brochure tarifaire
+                    </a>
+
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="socialSubmenu">
+                            <span><i class="fa-solid fa-share-nodes"></i> Réseaux Sociaux</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="socialSubmenu">
+                            <a href="https://mobile.facebook.com/?al_applink_data=%7B%22profile_id_messenger%22:%22100001454478283%22,%22messenger_major_version%22:%22579%22,%22qpl_join_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22app_switch_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22deeplink_source%22:%22trep%22,%22is_mailbox_empty%22:false%7D" target="_blank" class="sub-item">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/sayagnova?stkn=MTc4bW8xdWFhYm1yMw%3D%3D&utm_source=qr" target="_blank" class="sub-item">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="https://snapchat.com/t/VWJeN2JE" target="_blank" class="sub-item">
+                                <i class="fab fa-snapchat"></i> Snapchat
+                            </a>
+                            <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="sub-item">
+                                <i class="fab fa-tiktok"></i> TikTok
+                            </a>
+                            <a href="https://youtube.com/@sayag-nova?si=AT_7BWGrIzmbYv6p" target="_blank" class="sub-item">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="contactSubmenu">
+                            <span><i class="fa-solid fa-headset"></i> Contact</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="contactSubmenu">
+                            <a href="tel:0619215058" class="sub-item">
+                                <i class="fa-solid fa-phone"></i> 06 19 21 50 58
+                            </a>
+                            <a href="mailto:s.yohann@sayagnova.com" class="sub-item">
+                                <i class="fa-solid fa-envelope"></i> s.yohann@sayagnova.com
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Slogan Tapant -->
+            <div class="galactic-slogan">
+                <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i>
+                <span>Façonner <span class="highlight">le Futur</span> Numérique</span>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
+        <!-- Bouton retour discret -->
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
         
         <!-- En-tête de l'application -->
         <div class="app-hero">
@@ -297,7 +643,6 @@
             
             <h3 style="text-align: center; margin-top: 40px; color: var(--dark);">Pourquoi choisir Les dames S.Nova ?</h3>
             
-            <!-- Le nouveau tableau/grille remplace la liste à puces -->
             <div class="features-grid">
                 <div class="feature-box">
                     <div class="feature-icon"><i class="fa-solid fa-chess-pawn"></i></div>
@@ -340,8 +685,11 @@
         
     </div>
 
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
+
     <!-- Script Swiper -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
@@ -356,6 +704,37 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+        });
+
+        // Script JavaScript pour le Menu et ses sous-menus
+        const menuBtn = document.getElementById('menuBtn');
+        const menuDropdown = document.getElementById('menuDropdown');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuDropdown.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.submenu-toggle').forEach(toggleBtn => {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const targetId = toggleBtn.getAttribute('data-target');
+                const sublist = document.getElementById(targetId);
+                const arrow = toggleBtn.querySelector('.submenu-arrow');
+
+                if (sublist) {
+                    sublist.classList.toggle('open');
+                    if (arrow) arrow.classList.toggle('rotated');
+                }
+            });
+        });
+
+        menuDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', () => {
+            menuDropdown.classList.remove('active');
         });
     </script>
 </body>
