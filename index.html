@@ -532,7 +532,7 @@
         .card:hover { 
             transform: translateY(-5px); 
             box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
-            border-color: #cbd5e1;
+            border-color: #cbd5e1; 
         }
 
         .app-logo {
@@ -591,11 +591,11 @@
         
         .btn-view:hover { 
             background: var(--primary); 
-            color: white;
+            color: white; 
         }
 
         .btn-view-green:hover { 
-            background: var(--secondary);
+            background: var(--secondary); 
             color: white; 
         }
 
@@ -824,7 +824,7 @@
         <!-- Vidéo Studio Pro : VideoProject.mp4 -->
         <div class="video-container">
             <div class="video-frame">
-                <video autoplay muted loop playsinline class="studio-video">
+                <video id="studioVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" class="studio-video">
                     <source src="VideoProject.mp4" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>
@@ -957,11 +957,11 @@
                 <a href="https://www.instagram.com/sayagnova?stkn=MTc4bW8xdWFhYm1yMw%3D%3D&utm_source=qr" target="_blank" class="instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="tiktok" aria-label="TikTok">
-                    <i class="fab fa-tiktok"></i>
-                </a>
                 <a href="https://snapchat.com/t/VWJeN2JE" target="_blank" class="snapchat" aria-label="Snapchat">
                     <i class="fab fa-snapchat"></i>
+                </a>
+                <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="tiktok" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
                 </a>
                 <a href="https://youtube.com/@sayag-nova?si=AT_7BWGrIzmbYv6p" target="_blank" class="youtube" aria-label="YouTube">
                     <i class="fab fa-youtube"></i>
@@ -1022,6 +1022,15 @@
         document.addEventListener('click', () => {
             menuDropdown.classList.remove('active');
         });
+
+        // Forcer le lancement automatique de la vidéo en contournant les restrictions navigateurs
+        const studioVid = document.getElementById('studioVideo');
+        if (studioVid) {
+            studioVid.muted = true;
+            studioVid.play().catch(function(error) {
+                console.log("Lecture automatique bloquée par le navigateur :", error);
+            });
+        }
     </script>
 
 </body>
