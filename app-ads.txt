@@ -121,7 +121,6 @@ voisetech.com, 1066, RESELLER
 xandr.com, 17779, RESELLER
 zetaglobal.net, 525, RESELLER
 zmaticoo.com, 5135195, RESELLER
-Please add these missing authorized sellers to your app-ads.txt file.
 bigo.sg, adidz3dyfp, RESELLER
 bold-win.com, 1189, RESELLER, 71746737d0bab951
 e-planning.net, 79ded3cfca3d3b78, RESELLER, c1ba615865ed87b2
