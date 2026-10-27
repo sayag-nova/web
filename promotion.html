@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <!-- SEO & Métadonnées -->
-    <meta name="description" content="Offre promotionnelle limitée : votre site internet vitrine professionnel dès 99 €, sans abonnement et 100 % sur-mesure avec le studio Sayag Nova.">
+    <meta name="description" content="Offre promotionnelle limitée : votre site internet vitrine professionnel dès 99 € HT, sans abonnement et 100 % sur-mesure avec le studio Sayag Nova.">
     <link rel="canonical" href="https://www.sayagnova.com/promotion.html">
 
     <!-- Polices Google Fonts -->
@@ -427,10 +427,16 @@
         }
 
         .price-box .currency {
-            font-size: 1.5em;
+            font-size: 1.4em;
             font-weight: 700;
             color: var(--primary);
             vertical-align: super;
+        }
+
+        .price-box .tax {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--gray);
         }
 
         .price-box .period {
@@ -464,12 +470,79 @@
             flex-shrink: 0;
         }
 
-        /* Encart Transparence "Sans Abonnement" */
-        .transparency-card {
-            background: #ffffff;
+        /* Encart Nom de Domaine */
+        .domain-card {
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 35px 30px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .domain-icon {
+            font-size: 2.2em;
+            color: var(--accent);
+            background: #fef3c7;
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .domain-text {
+            flex-grow: 1;
+        }
+
+        .domain-text h3 {
+            font-size: 1.35em;
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .domain-price-tag {
+            background: #fef3c7;
+            color: #b45309;
+            font-size: 0.85em;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-weight: 700;
+            border: 1px solid #fde68a;
+        }
+
+        .domain-text p {
+            color: var(--gray);
+            font-size: 0.98em;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .domain-subtext {
+            background: #f8fafc;
+            border-left: 3px solid var(--accent);
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9em;
+            color: #475569;
+        }
+
+        /* Encart Transparence "Sans Abonnement" */
+        .transparency-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 35px 30px;
+            border: 1px solid var(--border-color);
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             display: flex;
             gap: 25px;
@@ -547,6 +620,21 @@
             color: white;
         }
 
+        /* Encart Mentions Astérisque / Conditions */
+        .asterisk-note {
+            background: #ffffff;
+            border: 1px dashed #cbd5e1;
+            border-radius: 16px;
+            padding: 22px 26px;
+            color: #64748b;
+            font-size: 0.88em;
+            line-height: 1.6;
+        }
+
+        .asterisk-note strong {
+            color: var(--dark);
+        }
+
         footer { 
             text-align: center; 
             padding: 30px 20px 50px; 
@@ -577,11 +665,20 @@
             .promo-header-content h1 {
                 font-size: 1.75em;
             }
-            .transparency-card {
+            .domain-card, .transparency-card {
                 flex-direction: column;
                 text-align: center;
                 padding: 25px 20px;
                 align-items: center;
+            }
+            .domain-text h3 {
+                justify-content: center;
+            }
+            .domain-subtext {
+                border-left: none;
+                border-top: 3px solid var(--accent);
+                border-radius: 0 0 8px 8px;
+                text-align: left;
             }
             .cta-box {
                 padding: 35px 20px;
@@ -608,7 +705,7 @@
                     <span>Menu</span>
                 </button>
 
-                <!-- Menu Déroulant Complet avec le nouvel onglet Promotion -->
+                <!-- Menu Déroulant Complet avec l'onglet Promotion -->
                 <div class="galactic-dropdown" id="menuDropdown">
                     <a href="index.html" class="menu-item">
                         <i class="fa-solid fa-house"></i> Accueil
@@ -618,7 +715,7 @@
                         <i class="fa-solid fa-building-user"></i> Présentation
                     </a>
 
-                    <!-- Nouvel onglet Promotion -->
+                    <!-- Onglet Promotion -->
                     <a href="promotion.html" class="menu-item menu-item-promo">
                         <i class="fa-solid fa-fire"></i> Promotion
                     </a>
@@ -711,7 +808,7 @@
                     <i class="fa-solid fa-clock"></i> Offre Spéciale &middot; Du 27/10/2026 au 15/11/2026
                 </div>
                 
-                <h1>Votre Site Vitrine Pro dès 99 €</h1>
+                <h1>Votre Site Vitrine Pro dès 99 € HT</h1>
                 <p class="subtitle">
                     Développez votre visibilité en ligne sans vous ruiner. Une solution clé en main, rapide, moderne et <strong>sans aucun abonnement mensuel</strong>.
                 </p>
@@ -725,7 +822,7 @@
                         <p style="color: var(--gray); font-size: 0.9em;">Idéal pour présenter votre activité, vos coordonnées et convertir vos visiteurs.</p>
                         
                         <div class="price-box">
-                            <span class="amount">99</span><span class="currency">€</span>
+                            <span class="amount">99</span><span class="currency">€</span> <span class="tax">HT</span>
                             <span class="period">Paiement unique &middot; 1 page complète</span>
                         </div>
 
@@ -742,10 +839,10 @@
                     <!-- Formule 2 : Pages Supplémentaires -->
                     <div class="pricing-card">
                         <h3>Pages Additionnelles</h3>
-                        <p style="color: var(--gray); font-size: 0.9em;">Besoin de développer vos services, ajouter un blog ou une galerie ?</p>
+                        <p style="color: var(--gray); font-size: 0.9em;">Besoin de détailler vos prestations, d'ajouter un portfolio ou une galerie ?</p>
                         
                         <div class="price-box">
-                            <span class="amount">+50</span><span class="currency">€</span>
+                            <span class="amount">+50</span><span class="currency">€</span> <span class="tax">HT</span>
                             <span class="period">Par page supplémentaire</span>
                         </div>
 
@@ -753,15 +850,36 @@
                             <li><i class="fa-solid fa-circle-check"></i> Page de présentation détaillée de vos prestations</li>
                             <li><i class="fa-solid fa-circle-check"></i> Galerie photos ou portfolio de réalisations</li>
                             <li><i class="fa-solid fa-circle-check"></i> Page tarifs ou foire aux questions (FAQ)</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Même exigence de design et de rapidité</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Vous composez votre site selon vos besoins</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Même niveau d'exigence graphique et d'optimisation</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Vous composez votre arborescence selon vos besoins</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Encart de Transparence "Sans Abonnement" -->
+        <!-- Encart Nom de Domaine Personnalisé -->
+        <div class="domain-card">
+            <div class="domain-icon">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="domain-text">
+                <h3>
+                    <span>Nom de Domaine Personnalisé (.fr ou .com)</span>
+                    <span class="domain-price-tag">19,90 € HT / an</span>
+                </h3>
+                <p>
+                    <strong>Pourquoi faut-il acheter un nom de domaine en plus ?</strong><br>
+                    Le nom de domaine (par exemple : <em>www.votre-entreprise.fr</em>) constitue votre identité officielle et l'adresse unique de votre activité sur Internet. Il est indispensable pour rassurer vos clients, professionnaliser vos échanges et permettre à Google d'indexer et référencer votre marque de manière pérenne.
+                </p>
+                <div class="domain-subtext">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--accent); margin-right: 6px;"></i>
+                    <strong>Transparence totale :</strong> Votre nom de domaine sera commandé et configuré auprès du registrar français réputé <strong>Viaduc</strong>. Le studio <strong>Sayag Nova ne réalise aucun bénéfice</strong> sur cet achat : vous réglez strictement le coût technique du service au tarif fournisseur.
+                </div>
+            </div>
+        </div>
+
+        <!-- Encart Transparence "Sans Abonnement" -->
         <div class="transparency-card">
             <div class="transparency-icon">
                 <i class="fa-solid fa-handshake-angle"></i>
@@ -787,6 +905,13 @@
             <a href="services.html" class="btn-claim">
                 <i class="fa-solid fa-paper-plane"></i> Demander mon site à prix réduit
             </a>
+        </div>
+
+        <!-- Note d'astérisque / Conditions réglementaires de l'offre -->
+        <div class="asterisk-note">
+            <p>
+                <strong>* Conditions de l'offre promotionnelle :</strong> Tous les tarifs affichés sur cette page s'entendent hors taxes (HT). Dans le cadre des offres promotionnelles, le règlement s'effectue obligatoirement en avance et dans sa totalité par virement bancaire avant le lancement des travaux de développement. Pour bénéficier de cette remise, veuillez prendre contact via notre <a href="services.html" style="color: var(--primary); font-weight: 600; text-decoration: underline;">page devis</a> en mentionnant l'offre promotionnelle : un conseiller prendra contact avec vous dans les plus brefs délais.
+            </p>
         </div>
 
     </div>
