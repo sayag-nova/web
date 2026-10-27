@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offre Exceptionnelle Site Vitrine - Sayag Nova</title>
+
+    <!-- Sécurité du navigateur -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <!-- SEO & Métadonnées -->
+    <meta name="description" content="Offre promotionnelle limitée : votre site internet vitrine professionnel dès 99 €, sans abonnement et 100 % sur-mesure avec le studio Sayag Nova.">
+    <link rel="canonical" href="https://www.sayagnova.com/promotion.html">
+
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2563eb; 
+            --primary-hover: #1d4ed8;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --secondary: #10b981; 
+            --dark: #0f172a;
+            --gray: #64748b;
+            --bg: #f0f4f9;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            color: var(--dark); 
+            background-color: var(--bg); 
+            background-image: 
+                radial-gradient(at 15% 10%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+                radial-gradient(at 85% 20%, rgba(245, 158, 11, 0.08) 0px, transparent 50%),
+                radial-gradient(at 50% 90%, rgba(99, 102, 241, 0.05) 0px, transparent 60%);
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Banderole Bleu Galactique Pleine Largeur --- */
+        .galactic-topbar {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, #090e17 0%, #1e1b4b 35%, #1d4ed8 75%, #0284c7 100%);
+            box-shadow: 0 4px 25px rgba(29, 78, 216, 0.35);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.4);
+        }
+
+        .galactic-content {
+            width: 100%;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .menu-trigger-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-menu-galaxy {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-menu-galaxy:hover {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Menu Déroulant */
+        .galactic-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 16px;
+            padding: 8px 0;
+            min-width: 275px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            animation: menuFadeIn 0.25s ease-out forwards;
+        }
+
+        .galactic-dropdown.active {
+            display: block;
+        }
+
+        @keyframes menuFadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .galactic-dropdown .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .galactic-dropdown .menu-item i {
+            color: #38bdf8;
+            font-size: 1.05em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .galactic-dropdown .menu-item:hover {
+            background: rgba(56, 189, 248, 0.15);
+            color: #ffffff;
+            padding-left: 24px;
+        }
+
+        .menu-item-promo {
+            color: #fbbf24 !important;
+            font-weight: 600 !important;
+        }
+        .menu-item-promo i {
+            color: #fbbf24 !important;
+        }
+
+        /* Sous-menus */
+        .submenu-container {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .submenu-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-family: inherit;
+            font-size: 0.95em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submenu-toggle span {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .submenu-toggle span i {
+            color: #38bdf8;
+            font-size: 1.05em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .submenu-arrow {
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+            color: #94a3b8;
+        }
+
+        .submenu-arrow.rotated {
+            transform: rotate(180deg);
+            color: #38bdf8;
+        }
+
+        .submenu-toggle:hover {
+            background: rgba(56, 189, 248, 0.12);
+            color: #ffffff;
+        }
+
+        .sublist {
+            display: none;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 4px 0 6px 10px;
+        }
+
+        .sublist.open {
+            display: block;
+        }
+
+        .sub-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px !important;
+            font-size: 0.88em !important;
+            color: #cbd5e1 !important;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .sub-item i {
+            font-size: 0.95em !important;
+            color: #38bdf8 !important;
+            width: 18px !important;
+            text-align: center;
+        }
+
+        .sub-item:hover {
+            color: #ffffff !important;
+            background: rgba(56, 189, 248, 0.18) !important;
+            padding-left: 22px !important;
+        }
+
+        /* Slogan */
+        .galactic-slogan {
+            color: #ffffff;
+            font-size: 0.95em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+        }
+
+        .galactic-slogan span.highlight {
+            color: #38bdf8;
+        }
+
+        /* --- Conteneur & Présentation --- */
+        .container { 
+            max-width: 960px; 
+            margin: 30px auto 60px; 
+            padding: 0 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 35px; 
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: color 0.2s;
+            align-self: flex-start;
+        }
+        .btn-back:hover {
+            color: var(--primary);
+        }
+
+        /* Bannière d'en-tête de l'offre */
+        .promo-header-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .promo-banner-img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .promo-header-content {
+            padding: 35px 30px 40px;
+        }
+
+        /* Badge Compte à rebours / Période */
+        .badge-countdown {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fee2e2 100%);
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+        }
+
+        .badge-countdown i {
+            color: #dc2626;
+            animation: pulseIcon 1.5s infinite;
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .promo-header-content h1 {
+            font-size: 2.3em;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 15px;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .promo-header-content p.subtitle {
+            font-size: 1.15em;
+            color: var(--gray);
+            max-width: 720px;
+            margin: 0 auto 30px;
+        }
+
+        /* Grille des tarifs */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 35px 25px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 12px 35px rgba(37, 99, 235, 0.12);
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 16px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.35em;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .price-box {
+            margin: 20px 0;
+        }
+
+        .price-box .amount {
+            font-size: 3em;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+        }
+
+        .price-box .currency {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
+            vertical-align: super;
+        }
+
+        .price-box .period {
+            color: var(--gray);
+            font-size: 0.9em;
+            display: block;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin: 25px 0 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-list li {
+            font-size: 0.95em;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li i {
+            color: var(--secondary);
+            font-size: 1em;
+            flex-shrink: 0;
+        }
+
+        /* Encart Transparence "Sans Abonnement" */
+        .transparency-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px 30px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .transparency-icon {
+            font-size: 2.2em;
+            color: var(--primary);
+            background: #eff6ff;
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .transparency-text h3 {
+            font-size: 1.35em;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .transparency-text p {
+            color: var(--gray);
+            font-size: 0.98em;
+            line-height: 1.6;
+        }
+
+        /* Bouton d'action CTA */
+        .cta-box {
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 45px 30px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+        }
+
+        .cta-box h2 {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: #94a3b8;
+            font-size: 1.05em;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-claim {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 36px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-claim:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+            color: white;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 30px 20px 50px; 
+            color: var(--gray); 
+            font-size: 0.9em; 
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .galactic-content {
+                padding: 10px 14px;
+                gap: 8px;
+            }
+            .btn-menu-galaxy {
+                padding: 6px 12px;
+                font-size: 0.82em;
+                flex-shrink: 0;
+            }
+            .galactic-slogan {
+                font-size: 0.70em;
+                letter-spacing: 0.5px;
+                text-align: right;
+                line-height: 1.2;
+            }
+            .promo-header-content {
+                padding: 25px 20px;
+            }
+            .promo-header-content h1 {
+                font-size: 1.75em;
+            }
+            .transparency-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+                align-items: center;
+            }
+            .cta-box {
+                padding: 35px 20px;
+            }
+            .cta-box h2 {
+                font-size: 1.6em;
+            }
+            .btn-claim {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banderole Bleu Galactique / Pleine Largeur -->
+    <div class="galactic-topbar">
+        <div class="galactic-content">
+            <!-- Menu en haut à gauche -->
+            <div class="menu-trigger-wrapper">
+                <button type="button" class="btn-menu-galaxy" id="menuBtn" aria-label="Ouvrir le menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span>Menu</span>
+                </button>
+
+                <!-- Menu Déroulant Complet avec le nouvel onglet Promotion -->
+                <div class="galactic-dropdown" id="menuDropdown">
+                    <a href="index.html" class="menu-item">
+                        <i class="fa-solid fa-house"></i> Accueil
+                    </a>
+                    
+                    <a href="presentation.html" class="menu-item">
+                        <i class="fa-solid fa-building-user"></i> Présentation
+                    </a>
+
+                    <!-- Nouvel onglet Promotion -->
+                    <a href="promotion.html" class="menu-item menu-item-promo">
+                        <i class="fa-solid fa-fire"></i> Promotion
+                    </a>
+                    
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="appsSubmenu">
+                            <span><i class="fa-solid fa-gamepad"></i> Les Applications</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="appsSubmenu">
+                            <a href="rami.html" class="sub-item"><i class="fa-solid fa-diamond"></i> Rami S.NOVA</a>
+                            <a href="solitaire.html" class="sub-item"><i class="fa-solid fa-heart"></i> Solitaire S.NOVA</a>
+                            <a href="dames.html" class="sub-item"><i class="fa-solid fa-circle-dot"></i> Les Dames S.Nova</a>
+                            <a href="echecs.html" class="sub-item"><i class="fa-solid fa-chess-knight"></i> Les Échecs S.Nova</a>
+                            <a href="sudoku.html" class="sub-item"><i class="fa-solid fa-table-cells"></i> Sudoku S.Nova</a>
+                            <a href="multimots.html" class="sub-item"><i class="fa-solid fa-font"></i> Multimots S.Nova</a>
+                            <a href="miroir.html" class="sub-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Miroir du Destin</a>
+                            <a href="matata.html" class="sub-item"><i class="fa-solid fa-graduation-cap"></i> Ma Tata</a>
+                        </div>
+                    </div>
+
+                    <a href="services.html" class="menu-item">
+                        <i class="fa-solid fa-paper-plane"></i> Devis
+                    </a>
+
+                    <a href="Brochure Commerciale Complète Sayag-Nova.pdf" download class="menu-item">
+                        <i class="fa-solid fa-file-pdf"></i> Brochure tarifaire
+                    </a>
+
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="socialSubmenu">
+                            <span><i class="fa-solid fa-share-nodes"></i> Réseaux Sociaux</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="socialSubmenu">
+                            <a href="https://mobile.facebook.com/?al_applink_data=%7B%22profile_id_messenger%22:%22100001454478283%22,%22messenger_major_version%22:%22579%22,%22qpl_join_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22app_switch_id%22:%2269440562-1B25-4866-8C4E-CE09B480883D%22,%22deeplink_source%22:%22trep%22,%22is_mailbox_empty%22:false%7D" target="_blank" class="sub-item">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/sayagnova?stkn=MTc4bW8xdWFhYm1yMw%3D%3D&utm_source=qr" target="_blank" class="sub-item">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="https://snapchat.com/t/VWJeN2JE" target="_blank" class="sub-item">
+                                <i class="fab fa-snapchat"></i> Snapchat
+                            </a>
+                            <a href="https://www.tiktok.com/@sayag_nova?_r=1&_t=ZN-99upqu9dDfS" target="_blank" class="sub-item">
+                                <i class="fab fa-tiktok"></i> TikTok
+                            </a>
+                            <a href="https://youtube.com/@sayag-nova?si=AT_7BWGrIzmbYv6p" target="_blank" class="sub-item">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="submenu-container">
+                        <button type="button" class="submenu-toggle" data-target="contactSubmenu">
+                            <span><i class="fa-solid fa-headset"></i> Contact</span>
+                            <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                        </button>
+                        <div class="sublist" id="contactSubmenu">
+                            <a href="tel:0619215058" class="sub-item">
+                                <i class="fa-solid fa-phone"></i> 06 19 21 50 58
+                            </a>
+                            <a href="mailto:s.yohann@sayagnova.com" class="sub-item">
+                                <i class="fa-solid fa-envelope"></i> s.yohann@sayagnova.com
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Slogan Tapant -->
+            <div class="galactic-slogan">
+                <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i>
+                <span>Façonner <span class="highlight">le Futur</span> Numérique</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Bouton retour -->
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
+
+        <!-- Carte Principale de l'Offre avec l'image en-tête -->
+        <div class="promo-header-card">
+            <img src="offre1.jpg" alt="Offre Spéciale Site Vitrine Sayag Nova" class="promo-banner-img" onerror="this.style.display='none'">
+            
+            <div class="promo-header-content">
+                <div class="badge-countdown">
+                    <i class="fa-solid fa-clock"></i> Offre Spéciale &middot; Du 27/10/2026 au 15/11/2026
+                </div>
+                
+                <h1>Votre Site Vitrine Pro dès 99 €</h1>
+                <p class="subtitle">
+                    Développez votre visibilité en ligne sans vous ruiner. Une solution clé en main, rapide, moderne et <strong>sans aucun abonnement mensuel</strong>.
+                </p>
+
+                <!-- Grille des Formules Tarifaires -->
+                <div class="pricing-grid">
+                    <!-- Formule 1 : Base One-Page -->
+                    <div class="pricing-card featured">
+                        <div class="featured-tag">Offre de Lancement</div>
+                        <h3>Formule One-Page</h3>
+                        <p style="color: var(--gray); font-size: 0.9em;">Idéal pour présenter votre activité, vos coordonnées et convertir vos visiteurs.</p>
+                        
+                        <div class="price-box">
+                            <span class="amount">99</span><span class="currency">€</span>
+                            <span class="period">Paiement unique &middot; 1 page complète</span>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle-check"></i> 1 page vitrine complète & structurée</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Design 100 % adapté Mobile, Tablette et PC</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Formulaire de contact direct relié à votre boîte mail</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Optimisation SEO pour le référencement Google</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Liens vers vos réseaux sociaux & appel direct</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Mise en ligne rapide & sécurisée</li>
+                        </ul>
+                    </div>
+
+                    <!-- Formule 2 : Pages Supplémentaires -->
+                    <div class="pricing-card">
+                        <h3>Pages Additionnelles</h3>
+                        <p style="color: var(--gray); font-size: 0.9em;">Besoin de développer vos services, ajouter un blog ou une galerie ?</p>
+                        
+                        <div class="price-box">
+                            <span class="amount">+50</span><span class="currency">€</span>
+                            <span class="period">Par page supplémentaire</span>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Page de présentation détaillée de vos prestations</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Galerie photos ou portfolio de réalisations</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Page tarifs ou foire aux questions (FAQ)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Même exigence de design et de rapidité</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Vous composez votre site selon vos besoins</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Encart de Transparence "Sans Abonnement" -->
+        <div class="transparency-card">
+            <div class="transparency-icon">
+                <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <div class="transparency-text">
+                <h3>Transparence Totale : Aucun Abonnement Imposé</h3>
+                <p>
+                    Contrairement à de nombreuses agences qui vous lient avec des mensualités obligatoires, chez <strong>Sayag Nova</strong>, vous payez uniquement la création de votre site. 
+                    Vous êtes pleinement propriétaire de votre outil. 
+                    <br><br>
+                    <strong>Comment fonctionnent les modifications futures ?</strong> 
+                    Aucun suivi mensuel n’est facturé. Le jour où vous souhaitez modifier un texte, ajouter une prestation ou renouveler des photos, chaque intervention se fait simplement <strong>sur devis ponctuel</strong>, sans engagement.
+                </p>
+            </div>
+        </div>
+
+        <!-- Appel à l'action final -->
+        <div class="cta-box">
+            <h2>Prêt à concrétiser votre projet ?</h2>
+            <p>
+                Cette offre promotionnelle prend fin le <strong>15 novembre 2026</strong>. Contactez-nous dès aujourd'hui pour réserver votre création de site vitrine.
+            </p>
+            <a href="services.html" class="btn-claim">
+                <i class="fa-solid fa-paper-plane"></i> Demander mon site à prix réduit
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sayag-nova. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script JavaScript pour le Menu et ses sous-menus -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const menuDropdown = document.getElementById('menuDropdown');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuDropdown.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.submenu-toggle').forEach(toggleBtn => {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const targetId = toggleBtn.getAttribute('data-target');
+                const sublist = document.getElementById(targetId);
+                const arrow = toggleBtn.querySelector('.submenu-arrow');
+
+                if (sublist) {
+                    sublist.classList.toggle('open');
+                    if (arrow) arrow.classList.toggle('rotated');
+                }
+            });
+        });
+
+        menuDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', () => {
+            menuDropdown.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
