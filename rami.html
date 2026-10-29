@@ -162,6 +162,14 @@
             padding-left: 24px;
         }
 
+        .menu-item-promo {
+            color: #fbbf24 !important;
+            font-weight: 600 !important;
+        }
+        .menu-item-promo i {
+            color: #fbbf24 !important;
+        }
+
         /* Sous-menus (Applications, Réseaux, Contact) */
         .submenu-container {
             border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -334,17 +342,25 @@
             margin-bottom: 20px;
         }
 
+        /* Groupe des boutons de téléchargement */
+        .btn-download-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
         .btn-download { 
             display: inline-flex; 
             align-items: center; 
             gap: 10px; 
             background: var(--primary); 
             color: white; 
-            padding: 12px 28px; 
+            padding: 12px 26px; 
             text-decoration: none; 
             border-radius: 50px; 
             font-weight: 600; 
-            font-size: 1.05em; 
+            font-size: 0.98em; 
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); 
             transition: all 0.3s ease; 
         }
@@ -352,6 +368,18 @@
             background: var(--primary-hover); 
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); 
+            color: white;
+        }
+
+        /* Bouton spécifique App Store Apple */
+        .btn-apple {
+            background: #000000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .btn-apple:hover {
+            background: #1e293b;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            color: white;
         }
 
         /* --- Carrousel d'images (Swiper) --- */
@@ -498,6 +526,14 @@
                 text-align: center; 
                 padding: 25px 20px;
             }
+            .btn-download-group {
+                justify-content: center;
+                width: 100%;
+            }
+            .btn-download {
+                width: 100%;
+                justify-content: center;
+            }
             .swiper-slide img { height: 350px; }
             .features-grid { grid-template-columns: 1fr; }
             .content-card { padding: 25px 20px; }
@@ -616,9 +652,16 @@
                 <h1>Rami S.NOVA</h1>
                 <span class="badge"><i class="fa-solid fa-star"></i> Application Gratuite &middot; Pubs</span>
                 <p><strong>L'expérience ultime du Rami classique revisitée pour votre smartphone !</strong></p>
-                <a href="https://play.google.com/store/apps/details?id=com.sayagnova.rami&utm_source=emea_Med" target="_blank" class="btn-download">
-                    <i class="fa-brands fa-google-play"></i> Télécharger sur Google Play
-                </a>
+                
+                <!-- Boutons Téléchargement Google Play & App Store -->
+                <div class="btn-download-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.sayagnova.rami&utm_source=emea_Med" target="_blank" class="btn-download">
+                        <i class="fa-brands fa-google-play"></i> Télécharger sur Google Play
+                    </a>
+                    <a href="https://apps.apple.com/fr/app/rami-snova/id6825688151" target="_blank" class="btn-download btn-apple">
+                        <i class="fa-brands fa-apple"></i> Télécharger sur l'App Store
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -724,7 +767,7 @@
         <!-- Section RGPD et Suppression de compte -->
         <div class="content-card">
             <h2><i class="fa-solid fa-trash-can"></i> Suppression de compte et de données</h2>
-            <p>Conformément aux règles de Google Play, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong><a href="mailto:sayagyohannnova@gmail.com" style="color: var(--primary);">sayagyohannnova@gmail.com</a></strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
+            <p>Conformément aux règles de Google Play et de l'App Store, vous pouvez demander à tout moment la suppression de votre compte et des données associées créés dans l'application. Pour ce faire, envoyez simplement une demande par e-mail à l'adresse suivante : <strong><a href="mailto:sayagyohannnova@gmail.com" style="color: var(--primary);">sayagyohannnova@gmail.com</a></strong>. Vos données seront intégralement supprimées de nos serveurs sous 48 heures.</p>
         </div>
 
         <!-- Liens footer -->
